@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HM.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b285cd7139f155a6bf3f00885d39831311bcc30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcc20e272f447887a3c02fa04ef9c85866512759")]
 [assembly: System.Reflection.AssemblyProductAttribute("HM.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HM.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
