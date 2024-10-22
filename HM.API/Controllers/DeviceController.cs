@@ -18,7 +18,7 @@ namespace HM.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<GetDevicesResponse>>> Get(CancellationToken ct)
+        public async Task<ActionResult<List<GetDevicesResponse>>> Get([FromQuery] CancellationToken ct)
         {
             GetDevicesResponse response = new(await _devicesRepository.Get(ct));
 
