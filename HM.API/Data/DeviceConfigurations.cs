@@ -8,7 +8,10 @@ namespace HM.API.Data
     {
         public void Configure(EntityTypeBuilder<Device> builder)
         {
-            builder.HasKey(x => x.IpAddress);
+            builder.HasKey(x => x.Id);
+
+            builder.Property(d => d.IpAddress)
+               .IsRequired();
 
             builder.Property(d => d.Title)
                 .IsRequired();

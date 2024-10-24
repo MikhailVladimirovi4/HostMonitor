@@ -18,8 +18,7 @@ namespace HM.API.Repository
         public async Task<List<DeviceDto>> Get(CancellationToken ct)
         {
             var devices = await _context.Devices
-                .AsNoTracking()
-                .Select(d => new DeviceDto(d.IpAddress, d.Title, d.Description, d.Note, d.CreatedAt))
+                .Select(d => new DeviceDto(d.Id, d.IpAddress, d.Title, d.Description, d.Note, d.CreatedAt))
                 .ToListAsync(ct);
 
             return devices;
@@ -27,11 +26,12 @@ namespace HM.API.Repository
 
         public async Task<string> Create(CreateDeviceDto createDeviceDto, CancellationToken ct)
         {
-            string result = string.Empty;
+            string result;
             bool isIpAddressUse = false;
 
-            foreach (Device d in _context.Devices) {
-                isIpAddressUse = (d.IpAddress == createDeviceDto.IpAddress);                   
+            foreach (Device d in _context.Devices)
+            {
+                isIpAddressUse = (d.IpAddress == createDeviceDto.IpAddress);
             };
 
             if (!isIpAddressUse)
@@ -51,10 +51,10 @@ namespace HM.API.Repository
             return result;
         }
 
-        public async Task<string> Update(string ipAddress, string title, string description, string note, CancellationToken ct)
+        public async Task<string> Update(Guid id, string ipAddress, string title, string description, string note, CancellationToken ct)
         {
             await _context.Devices
-                .Where(d => d.IpAddress == ipAddress)
+                .Where(d => d.Id == id)
                 .ExecuteUpdateAsync(s => s
                 .SetProperty(d => d.Title, d => title)
                 .SetProperty(d => d.Description, d => description)
@@ -65,10 +65,10 @@ namespace HM.API.Repository
             return "Данные устройтсва с ip-адресом: " + ipAddress + " изменены.";
         }
 
-        public async Task<string> Delete(string ipAddress, CancellationToken ct)
+        public async Task<string> Delete(Guid id, string ipAddress, CancellationToken ct)
         {
             await _context.Devices
-                .Where(d => d.IpAddress == ipAddress)
+                .Where(d => d.Id == id)
             .ExecuteDeleteAsync(ct);
 
             await _context.SaveChangesAsync(ct);

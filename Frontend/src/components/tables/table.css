@@ -1,0 +1,45 @@
+.datatable {
+  width: 40px;
+}
+
+.titletable {
+  width: 40px;
+}
+
+.descriptiontable {
+  width: 500px;
+}
+
+.ipaddresstable {
+  width: 40px;
+}
+
+.notetable {
+  width: 40px;
+}
+
+.buttontable {
+  width: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #1d0336;
+  border-collapse: collapse;
+}
+
+table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #d5d4d4;
+  border: 1px solid #560a77;
+  position: sticky;
+  top: 102px;
+}
+
+table td {
+  background: #fffdfd;
+  border: 1px solid #560a77;
+  padding: 5px;
+}
