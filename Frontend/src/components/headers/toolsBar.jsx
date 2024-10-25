@@ -1,10 +1,9 @@
-import AddButton from '../buttons/AddButton';
-import './headers.css'
+import Button from '../buttons/button.jsx';
 
 export default function ToolsBar() {
   return (
     <section className="toolsBar">
-      <AddButton />
+      <Button  onClick={() => handelClick()}>Добавить устройство</Button>
     </section>
   );
 }

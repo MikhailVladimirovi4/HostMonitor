@@ -1,9 +1,18 @@
 import logo from "/monitoring.jpg";
-import './headers.css'
-
-const nowTime = new Date();
+import "./headers.css";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [nowTime, setNowTime] = useState(new Date());
+
+  useEffect(() => {
+    const timeInterval = setInterval(() => setNowTime(new Date()), 1000);
+
+    return () => {
+      clearInterval(timeInterval);
+    };
+  }, []);
+
   return (
     <header className="header">
       <img src={logo} alt="Графика" width="150" />

@@ -25,6 +25,7 @@ export default function Table() {
   }, []);
   return (
     <table className="table">
+      
       <thead>
         <tr>
           <th className="datatable">Создано</th>

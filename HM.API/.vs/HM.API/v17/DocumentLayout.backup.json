@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\VSProjects\\HostMonitor\\HM.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\contracts\\getdevicesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:contracts\\getdevicesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\data\\deviceconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:data\\deviceconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\contracts\\getdevicesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:contracts\\getdevicesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\irepository\\idevicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "GetDevicesResponse.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Contracts\\GetDevicesResponse.cs",
               "RelativeDocumentMoniker": "Contracts\\GetDevicesResponse.cs",
@@ -71,12 +71,11 @@
               "RelativeToolTip": "Repository\\IRepository\\IDevicesRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T09:41:53.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T09:41:53.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DeviceConfigurations.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Data\\DeviceConfigurations.cs",
               "RelativeDocumentMoniker": "Data\\DeviceConfigurations.cs",
@@ -84,12 +83,11 @@
               "RelativeToolTip": "Data\\DeviceConfigurations.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T09:41:08.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T09:41:08.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DeviceDto.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Models\\Dto\\DeviceDto.cs",
               "RelativeDocumentMoniker": "Models\\Dto\\DeviceDto.cs",
@@ -97,12 +95,11 @@
               "RelativeToolTip": "Models\\Dto\\DeviceDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T09:38:47.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T09:38:47.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Device.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Models\\Device.cs",
               "RelativeDocumentMoniker": "Models\\Device.cs",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "Models\\Device.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T12:44:19.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T12:44:19.688Z"
             },
             {
               "$type": "Document",
@@ -121,14 +117,14 @@
               "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
               "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Controllers\\DeviceController.cs",
               "RelativeToolTip": "Controllers\\DeviceController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBQAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T12:33:11.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "DevicesRepository.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\DevicesRepository.cs",
               "RelativeDocumentMoniker": "Repository\\DevicesRepository.cs",
@@ -136,8 +132,7 @@
               "RelativeToolTip": "Repository\\DevicesRepository.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T17:23:30.786Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T17:23:30.786Z"
             },
             {
               "$type": "Document",
@@ -149,8 +144,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAABUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:28:07.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T12:28:07.5Z"
             },
             {
               "$type": "Document",
@@ -162,8 +156,7 @@
               "RelativeToolTip": "Models\\LocalUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:58:32.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T11:58:32.461Z"
             }
           ]
         }
