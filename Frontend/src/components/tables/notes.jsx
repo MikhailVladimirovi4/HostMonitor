@@ -1,8 +1,6 @@
 import moment from "moment";
 import "./table.css";
 import Button from "../buttons/button";
-import Modal from "../modal/modal";
-
 
 export default function Notes({
   id,
@@ -11,17 +9,8 @@ export default function Notes({
   description,
   note,
   createdAt,
+  onClick,
 }) {
-
-function openModal({children}){
-  <Modal>
-    <h3>{children}</h3>
-    <Button>Подтвердить</Button>
-    <Button>Отмена</Button>
-  </Modal>
-}
-
-
   return (
     <tr>
       <td className="datatable">{moment(createdAt).format("DD/MM/YYYY")}</td>
@@ -30,10 +19,10 @@ function openModal({children}){
       <td>{ipAddress}</td>
       <td>{note}</td>
       <td>
-        <Button onClick={openModal}>Edit</Button>
+        <Button onClick={onClick}>Edit</Button>
       </td>
       <td>
-        <Button onClick={openModal}>Dell</Button>
+        <Button onClick={onClick}>Dell</Button>
       </td>
     </tr>
   );

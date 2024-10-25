@@ -1,9 +1,9 @@
-import Button from '../buttons/button.jsx';
+import Button from "../buttons/button.jsx";
 
-export default function ToolsBar() {
+export default function ToolsBar({onClick}) {
   return (
     <section className="toolsBar">
-      <Button  onClick={() => handelClick()}>Добавить устройство</Button>
+      <Button onClick={onClick}>Добавить устройство</Button>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
 import "./table.css";
 
-export default function Table() {
+export default function Table({onClick}) {
   //const [loading, setLoading] = useState(false);
   const [devices, setDevices] = useState([]);
 
@@ -39,7 +39,7 @@ export default function Table() {
       </thead>
       <tbody>
         {devices.map(({ id, ...props }) => {
-          return <Notes key={id} {...props} />;
+          return <Notes key={id} {...props} onClick={onClick} />;
         })}
       </tbody>
     </table>

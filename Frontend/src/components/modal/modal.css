@@ -1,0 +1,13 @@
+dialog {
+    width: 400px;
+    margin: 10rem auto;
+    padding: 1rem;
+    border: 3px solid #7f339a;
+    border-radius: 10px;
+    z-index: 100;
+    background-color: rgb(222, 204, 239);
+    position: fixed;
+    box-shadow: 0 2px #5d217f;
+    font-size: 14px;
+    font-weight: 500;
+}
