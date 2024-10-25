@@ -1,13 +1,14 @@
 dialog {
-    width: 400px;
-    margin: 10rem auto;
+    width: 30rem;
+    height: auto;
+    margin: 20rem auto;
     padding: 1rem;
-    border: 3px solid #7f339a;
+    border: 3px solid #040909;
     border-radius: 10px;
     z-index: 100;
-    background-color: rgb(222, 204, 239);
+    background-color: rgb(216, 229, 171);
     position: fixed;
-    box-shadow: 0 2px #5d217f;
-    font-size: 14px;
+    box-shadow: 0 3px #798159;
+    font-size: 20px;
     font-weight: 500;
 }
