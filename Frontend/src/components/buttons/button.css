@@ -1,28 +1,26 @@
 .btn {
   display: inline-block;
-  box-sizing: border-box;
+  box-sizing: content-box;
   padding: 0 20px;
-  margin: 0 15px 15px 0;
+  margin: 5px 40px 0 45px;
   outline: none;
   border: none;
   border-radius: 4px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 14px;
   font-weight: 500;
-  text-decoration: none;
-  color: #fff;
-  background-color: #a037dd;
-  box-shadow: 0 2px #5d217f;
+  color: #000000;
+  background-color: #fefefe;
+  box-shadow: 0 2px #0c0b0c;
   cursor: pointer;
   user-select: none;
   appearance: none;
   touch-action: manipulation;
-  vertical-align: top;
+  vertical-align: bottom;
+  align-content: center;
 }
 
 .btn:hover {
-  background-color: #37045e;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .btn:active {

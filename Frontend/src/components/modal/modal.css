@@ -1,6 +1,5 @@
 dialog {
-    width: 30rem;
-    height: auto;
+
     margin: 20rem auto;
     padding: 1rem;
     border: 3px solid #040909;
@@ -9,6 +8,7 @@ dialog {
     background-color: rgb(216, 229, 171);
     position: fixed;
     box-shadow: 0 3px #798159;
+    box-sizing: border-box;
     font-size: 20px;
     font-weight: 500;
 }
