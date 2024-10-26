@@ -1,20 +1,27 @@
-import { createPortal } from "react-dom";
 import "./modal.css";
-import { useRef, useEffect } from "react";
 
-export default function Modal({ children, open }) {
-  const dialog = useRef();
+export default function Modal({ open, action, children, ...props }) {
+  console.log(props);
+  console.log(action);
 
-  useEffect(() => {
-    if (open) {
-      dialog.current.showModal();
-    } else {
-      dialog.current.close();
+  function showContent(action) {
+    switch (action) {
+      case "del":
+        return <p>Подтвердить удаление записи!</p>;
+      case "edit":
+        return <p>Подтвердить изменение записи!</p>;
+      case "add":
+        return <p>Подтвердить добавление записи!</p>;
+      default:
+        return "Подтвердить";
     }
-  }, [open]);
+  }
 
-  return createPortal(
-    <dialog ref={dialog}>{children}</dialog>,
-    document.getElementById("modal")
-  );
+  return open ? (
+    <div className="modal">
+      <div className={action}>
+        {showContent(action)} {children}
+      </div>
+    </div>
+  ) : null;
 }

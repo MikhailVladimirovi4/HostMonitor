@@ -5,9 +5,9 @@ export default function Button({ children, onClick }) {
     switch (param) {
       case "Edit":
         return "btnEdit";
-      case "Dell":
-        return "btnDell";
-      case "Добавить устройство":
+      case "X":
+        return "btnDel";
+      case "Добавить":
         return "btnAdd";
       default:
         return "btn";

@@ -3,9 +3,10 @@ import { fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
 import "./table.css";
 
-export default function Table({onClick}) {
+export default function Table({}) {
   //const [loading, setLoading] = useState(false);
   const [devices, setDevices] = useState([]);
+
 
   const fechData = async () => {
     // setLoading(true);
@@ -39,7 +40,7 @@ export default function Table({onClick}) {
       </thead>
       <tbody>
         {devices.map(({ id, ...props }) => {
-          return <Notes key={id} {...props} onClick={onClick} />;
+          return <Notes key={id} {...props} />;
         })}
       </tbody>
     </table>

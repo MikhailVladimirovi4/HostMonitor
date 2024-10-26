@@ -1,14 +1,55 @@
-dialog {
-
-    margin: 20rem auto;
-    padding: 1rem;
-    border: 3px solid #040909;
-    border-radius: 10px;
-    z-index: 100;
-    background-color: rgb(216, 229, 171);
-    position: fixed;
-    box-shadow: 0 3px #798159;
-    box-sizing: border-box;
-    font-size: 20px;
-    font-weight: 500;
+.modal {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.del {
+  align-content: center;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  color: #950000;
+  min-width: 50px;
+  min-height: 20px;
+  padding: 1rem;
+  border: 3px solid #040909;
+  border-radius: 10px;
+  box-shadow: 0 3px #798159;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 500;
+}
+.edit {
+  align-content: center;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  color: #02195e;
+  min-width: 50px;
+  min-height: 20px;
+  padding: 1rem;
+  border: 3px solid #040909;
+  border-radius: 10px;
+  box-shadow: 0 3px #798159;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 500;
+}
+.add {
+  align-content: center;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  color: #023201;
+  min-width: 50px;
+  min-height: 20px;
+  padding: 1rem;
+  border: 3px solid #040909;
+  border-radius: 10px;
+  box-shadow: 0 3px #798159;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 500;
 }

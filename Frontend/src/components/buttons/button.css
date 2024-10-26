@@ -1,14 +1,13 @@
 .btn {
   display: inline-block;
   box-sizing: content-box;
-  padding: 0 20px;
-  margin: 5px 40px 0 45px;
+  padding: 10px 20px;
+  margin: 20px 20px 0 30px;
   outline: none;
   border: none;
   border-radius: 4px;
-  font-weight: 500;
   color: #000000;
-  background-color: #fefefe;
+  background-color: #e9d5d5;
   box-shadow: 0 2px #0c0b0c;
   cursor: pointer;
   user-select: none;
@@ -19,12 +18,12 @@
 }
 
 .btn:hover {
-  background-color: #000000;
+  background-color: #767676;
   color: #ffffff;
 }
 
 .btn:active {
-  background-color: #672f9e !important;
+  background-color: #000000 !important;
 }
 
 .btn:focus-visible {
@@ -64,7 +63,7 @@
 }
 
 .btnEdit:active {
-  background-color: #2f599e !important;
+  background-color: #150563 !important;
 }
 
 .btnEdit:focus-visible {
@@ -76,7 +75,7 @@
   pointer-events: none;
 }
 
-.btnDell {
+.btnDel {
   display: inline-block;
   box-sizing: border-box;
   padding: 0 5px;
@@ -84,11 +83,13 @@
   outline: none;
   border: none;
   border-radius: 100px;
+  width: 32px;
   height: 32px;
   line-height: 32px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  font-size: large;
   color: #fff;
   background-color: #dd3737;
   box-shadow: 0 2px #7f2121;
@@ -99,19 +100,19 @@
   vertical-align: top;
 }
 
-.btnDell:hover {
+.btnDel:hover {
   background-color: #ed0000;
 }
 
-.btnDell:active {
-  background-color: #9e2f2f !important;
+.btnDel:active {
+  background-color: #5b0404 !important;
 }
 
-.btnDell:focus-visible {
+.btnDel:focus-visible {
   box-shadow: 0 0 0 3px rgb(250, 135, 135);
 }
 
-.btnDell:disabled {
+.btnDel:disabled {
   background-color: #a4a4a4;
   pointer-events: none;
 }
@@ -139,10 +140,10 @@
   vertical-align: top;
 }
 .btnAdd:hover {
-  background-color: #0d5e04;
+  background-color: #25871a;
 }
 .btnAdd:active {
-  background-color: #359e2f !important;
+  background-color: #12490f !important;
 }
 .btnAdd:focus-visible {
   box-shadow: 0 0 0 3px rgb(137, 250, 135);
