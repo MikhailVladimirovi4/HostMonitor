@@ -118,6 +118,7 @@
 }
 
 .btnAdd {
+  
   display: inline-block;
   box-sizing: border-box;
   padding: 0 20px;
@@ -137,7 +138,7 @@
   user-select: none;
   appearance: none;
   touch-action: manipulation;
-  vertical-align: top;
+  position: fixed;
 }
 .btnAdd:hover {
   background-color: #25871a;

@@ -1,5 +1,4 @@
 import Header from "./components/headers/header";
-import ToolsBar from "./components/headers/toolsBar";
 import Table from "./components/tables/table";
 
 export default function App() {
@@ -7,9 +6,6 @@ export default function App() {
     <>
       <div>
         <Header />
-        <div>
-          <ToolsBar />
-        </div>
         <main>
           <Table />
         </main>

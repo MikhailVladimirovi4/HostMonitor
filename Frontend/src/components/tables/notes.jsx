@@ -3,14 +3,15 @@ import "./table.css";
 import Button from "../buttons/button";
 import { useState, Fragment } from "react";
 import Modal from "../modal/modal";
+import { deleteDevice } from "../services/device";
 
 export default function Notes({
-  id,
   ipAddress,
   title,
   description,
   note,
   createdAt,
+  actionComplete,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -19,14 +20,23 @@ export default function Notes({
     setDelModal(true);
   }
 
+  function DelNote(ipAddress) {
+    deleteDevice(ipAddress)
+    setDelModal(false);
+    actionComplete(ipAddress + ' - запись удалена.');
+  }
+
   function openEditModal() {
     setEditModal(true);
+  }
+  function closeEditModal() {
+    setEditModal(false);
   }
 
   return (
     <Fragment>
       <Modal open={delModal} action="del">
-        <Button onClick={() => setDelModal(false) }>Удалить</Button>
+        <Button onClick={() => DelNote(ipAddress)}>Удалить</Button>
         <Button onClick={() => setDelModal(false)}>Отмена</Button>
       </Modal>
       <Modal
@@ -37,7 +47,7 @@ export default function Notes({
         description={description}
         note={note}
       >
-        <Button onClick={() => setEditModal(false)}>Изменить</Button>
+        <Button onClick={() => closeEditModal()}>Изменить</Button>
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
 

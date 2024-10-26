@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\VSProjects\\HostMonitor\\HM.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\irepository\\idevicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\irepository\\idevicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\devicesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "IDevicesRepository.cs",
+              "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\IRepository\\IDevicesRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IDevicesRepository.cs",
+              "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\IRepository\\IDevicesRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IDevicesRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T11:31:06.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DevicesRepository.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\DevicesRepository.cs",
               "RelativeDocumentMoniker": "Repository\\DevicesRepository.cs",
               "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\DevicesRepository.cs",
               "RelativeToolTip": "Repository\\DevicesRepository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwBEAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwDwAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T17:23:30.786Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DeviceController.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Controllers\\DeviceController.cs",
               "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
               "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Controllers\\DeviceController.cs",
               "RelativeToolTip": "Controllers\\DeviceController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAwBYAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCQAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:33:11.948Z"
+              "WhenOpened": "2024-10-21T12:33:11.948Z",
+              "EditorCaption": ""
             }
           ]
         }

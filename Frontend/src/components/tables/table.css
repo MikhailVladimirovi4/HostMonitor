@@ -23,32 +23,45 @@
 }
 
 .table {
- width: 100%;
- height: 100%;
+  width: 100%;
+  height: 100%;
+  margin-right: 0;
+  margin-left: auto;
 }
 
-table th { 
+table th {
   text-transform: uppercase;
-font-size: 70%;
+  font-size: 100%;
   padding: 5px;
   background: #8e8a8a;
   border: 2px solid #1d0336;
   position: sticky;
-  top: 140px;
+  top: 20%;
+  margin-left: 5;
   line-height: 1;
 }
 
 table td {
   background: #fffdfd;
   border: 1px solid #560a77;
-  padding: 5px;
+  padding: 3px;
   text-align: left;
   line-height: 1;
   position: sticky;
-  top: 165px;
+  top: 25%;
+  bottom: 10%;
+  box-sizing: border-box;
 }
 
 .topBorder {
   margin-top: 100px;
 }
 
+.showlog {
+  position: fixed;
+  top:60px;
+  left: 5%;
+  font-size: 70%;
+  box-sizing: border-box;
+  color: red;
+}

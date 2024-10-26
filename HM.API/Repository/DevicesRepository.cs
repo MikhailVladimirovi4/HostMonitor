@@ -51,10 +51,10 @@ namespace HM.API.Repository
             return result;
         }
 
-        public async Task<string> Update(Guid id, string ipAddress, string title, string description, string note, CancellationToken ct)
+        public async Task<string> Update(string ipAddress, string title, string description, string note, CancellationToken ct)
         {
             await _context.Devices
-                .Where(d => d.Id == id)
+                .Where(d => d.IpAddress == ipAddress)
                 .ExecuteUpdateAsync(s => s
                 .SetProperty(d => d.Title, d => title)
                 .SetProperty(d => d.Description, d => description)
@@ -65,15 +65,15 @@ namespace HM.API.Repository
             return "Данные устройтсва с ip-адресом: " + ipAddress + " изменены.";
         }
 
-        public async Task<string> Delete(Guid id, string ipAddress, CancellationToken ct)
+        public async Task<string> Delete(string ipAddress, CancellationToken ct)
         {
             await _context.Devices
-                .Where(d => d.Id == id)
+                .Where(d => d.IpAddress == ipAddress)
             .ExecuteDeleteAsync(ct);
 
             await _context.SaveChangesAsync(ct);
 
-            return "Устройтсво с ip-адресом: " + ipAddress + "удалено.";
+            return "Запись " + ipAddress + " удалена.";
         }
     }
 }

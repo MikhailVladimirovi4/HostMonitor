@@ -32,17 +32,17 @@ namespace HM.API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<string>> Update(Guid id, string ipAddress, string title, string description, string note, CancellationToken ct)
+        public async Task<ActionResult<string>> Update(string ipAddress, string title, string description, string note, CancellationToken ct)
         {
-            string result = await _devicesRepository.Update(id, ipAddress, title, description, note, ct);
+            string result = await _devicesRepository.Update(ipAddress, title, description, note, ct);
 
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<ActionResult<string>> Delete(Guid id, string ipAddress, CancellationToken ct)
+        public async Task<ActionResult<string>> Delete(string ipAddress,CancellationToken ct)
         {
-            string result = await _devicesRepository.Delete(id, ipAddress, ct);
+            string result = await _devicesRepository.Delete(ipAddress, ct);
 
             return Ok(result);
         }
