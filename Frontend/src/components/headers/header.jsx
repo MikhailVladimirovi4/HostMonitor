@@ -1,5 +1,4 @@
 import logo from "/monitoring.jpg";
-import "./headers.css";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -15,9 +14,9 @@ export default function Header() {
 
   return (
     <header className="header">
-      <img src={logo} alt="Графика" width="150" />
+      <img src={logo} alt="Графика" width="10%" />
       <span>
-        <section className="colorwhite">Контроль - залог Успеха!</section>
+        <section className="colorwhite">Тут может быть ваша РЕКЛАМА...</section>
       </span>
       <span>
         <time>

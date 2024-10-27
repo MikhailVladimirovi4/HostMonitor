@@ -1,8 +1,6 @@
 import "./modal.css";
 
-export default function Modal({ open, action, children, ...props }) {
-  // console.log(props);
-  // console.log(action);
+export default function Modal({ open, action, children }) {
 
   function showContent(action) {
     switch (action) {

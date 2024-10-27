@@ -1,19 +1,25 @@
+import "./table.css";
 import { Fragment, useEffect, useState } from "react";
 import { fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
-import Button from "../buttons/button.jsx";
-import Modal from "../modal/modal.jsx";
-import "./table.css";
+import useInput from "../services/useInput";
+import moment from "moment";
+import Modal from "../modal/modal";
+import Button from "../buttons/button";
 
 export default function Table({}) {
   const [devices, setDevices] = useState([]);
-  const [addModal, setAddModal] = useState(false);
   const [showLog, setShowLog] = useState("");
+  const input = useInput();
+  const [addModal, setAddModal] = useState(false);
+
+  function AddNote() {
+    setAddModal(false);
+  }
 
   function actionComplete(text) {
     setShowLog(text);
-    const timeInterval = setInterval(() => setShowLog(""), 10000);
-    clearInterval(timeInterval);
+    setInterval(() => setShowLog(""), 10000);
   }
 
   const fechData = async () => {
@@ -23,6 +29,7 @@ export default function Table({}) {
       setDevices(devices);
     } catch (e) {
       console.log(e);
+      setShowLog("ОШИБКА: Нет связи с базой данных...");
     }
   };
 
@@ -30,13 +37,19 @@ export default function Table({}) {
     fechData();
   }, [actionComplete]);
   return (
-    <Fragment>
+    <section className="main-table">
+      <span className="showlog">{showLog}</span>
+      <Fragment>
+        <input type="text" id="search" className="control" {...input} />
+        <label htmlFor="search" className="poisk">
+          Поиск...
+        </label>
+      </Fragment>
       <Modal open={addModal} action="add">
-        <Button onClick={() => setAddModal(false)}>Выполнить</Button>
+        <Button onClick={() => AddNote()}>Выполнить</Button>
         <Button onClick={() => setAddModal(false)}>Отмена</Button>
       </Modal>
       <Button onClick={() => setAddModal(true)}>Добавить</Button>
-      <span className="showlog">{showLog}</span>
       <table className="table">
         <thead>
           <tr>
@@ -50,13 +63,31 @@ export default function Table({}) {
           </tr>
         </thead>
         <tbody>
-          {devices.map(({ id, ...props }) => {
-            return (
-              <Notes key={id} {...props} actionComplete={actionComplete} />
-            );
-          })}
+          {devices
+            .filter(
+              (device) =>
+                device.ipAddress
+                  .toLowerCase()
+                  .includes(input.value.toLowerCase()) ||
+                device.title
+                  .toLowerCase()
+                  .includes(input.value.toLowerCase()) ||
+                device.description
+                  .toLowerCase()
+                  .includes(input.value.toLowerCase()) ||
+                device.note.toLowerCase().includes(input.value.toLowerCase()) ||
+                moment(device.createdAt)
+                  .format("DD/MM/YYYY")
+                  .toLowerCase()
+                  .includes(input.value.toLowerCase())
+            )
+            .map(({ id, ...props }) => {
+              return (
+                <Notes key={id} {...props} actionComplete={actionComplete} />
+              );
+            })}
         </tbody>
       </table>
-    </Fragment>
+    </section>
   );
 }

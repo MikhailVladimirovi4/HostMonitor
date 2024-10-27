@@ -1,56 +1,51 @@
 .datatable {
-  width: 40px;
+  width: 5%;
+  font-size: 0.9vw;
 }
 
 .titletable {
-  width: 40px;
+  width: 10%;
 }
 
 .descriptiontable {
-  width: 500px;
+  width: 30%;
 }
 
 .ipaddresstable {
-  width: 40px;
+  width: 7%;
 }
 
 .notetable {
-  width: 40px;
+  width: 50%;
 }
 
 .buttontable {
-  width: 20px;
+  width: 0;
+  padding: 1px;
 }
 
 .table {
   width: 100%;
   height: 100%;
-  margin-right: 0;
-  margin-left: auto;
 }
 
 table th {
+  position: sticky;
+  top: 19%;
   text-transform: uppercase;
   font-size: 100%;
   padding: 5px;
   background: #8e8a8a;
-  border: 2px solid #1d0336;
+  border: 3px solid #560a77;
   position: sticky;
-  top: 20%;
-  margin-left: 5;
-  line-height: 1;
 }
 
 table td {
   background: #fffdfd;
   border: 1px solid #560a77;
-  padding: 3px;
+  padding: 1px;
   text-align: left;
   line-height: 1;
-  position: sticky;
-  top: 25%;
-  bottom: 10%;
-  box-sizing: border-box;
 }
 
 .topBorder {
@@ -59,9 +54,9 @@ table td {
 
 .showlog {
   position: fixed;
-  top:60px;
-  left: 5%;
-  font-size: 70%;
+  top: 9%;
+  left: 1%;
+  font-size: 0.6vw;
   box-sizing: border-box;
   color: red;
 }
