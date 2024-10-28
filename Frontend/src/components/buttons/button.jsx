@@ -7,7 +7,7 @@ export default function Button({ children, onClick }) {
         return "btnEdit";
       case "X":
         return "btnDel";
-      case "Добавить":
+      case "Добавить...":
         return "btnAdd";
       default:
         return "btn";

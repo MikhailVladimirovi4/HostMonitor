@@ -20,8 +20,7 @@
   border-radius: 10px;
   box-shadow: 0 3px #798159;
   box-sizing: border-box;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 1vw;
 }
 .edit {
   align-content: center;
@@ -35,25 +34,27 @@
   border-radius: 10px;
   box-shadow: 0 3px #798159;
   box-sizing: border-box;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 1vw;
 }
 .add {
-  z-index: 2;
-  position: fixed;
   top: 35%;
   left: 35%;
-  align-content: center;
   margin: auto;
   background-color: rgb(255, 255, 255);
   color: #023201;
-  min-width: 50px;
-  min-height: 20px;
   padding: 1rem;
   border: 3px solid #040909;
   border-radius: 10px;
   box-shadow: 0 3px #798159;
-  box-sizing: border-box;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 1vw;
+}
+.inputmodal { 
+  position: sticky;
+  top: 10%;
+  font-size: 1vw;
+  border: 1px solid #150505;
+  border-radius: 5px;
+  padding: 0.5% 0.5%;
+  width: 100%;
+  background-color: rgb(202, 201, 201);
 }

@@ -1,5 +1,5 @@
 import "./table.css";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
 import useInput from "../services/useInput";
@@ -10,9 +10,8 @@ import Button from "../buttons/button";
 export default function Table({}) {
   const [devices, setDevices] = useState([]);
   const [showLog, setShowLog] = useState("");
-  const input = useInput();
   const [addModal, setAddModal] = useState(false);
-
+  const input = useInput();
   function AddNote() {
     setAddModal(false);
   }
@@ -37,19 +36,23 @@ export default function Table({}) {
     fechData();
   }, [actionComplete]);
   return (
-    <section className="main-table">
+    <section className="maintable">
       <span className="showlog">{showLog}</span>
-      <Fragment>
-        <input type="text" id="search" className="control" {...input} />
-        <label htmlFor="search" className="poisk">
-          Поиск...
-        </label>
-      </Fragment>
-      <Modal open={addModal} action="add">
-        <Button onClick={() => AddNote()}>Выполнить</Button>
-        <Button onClick={() => setAddModal(false)}>Отмена</Button>
+      <input type="text" id="search" className="control"{...input} />
+      <label htmlFor="search">Поиск...</label>
+      <Modal
+        open={addModal}
+        action="add"
+        ipAddress="1-255.1-255.1-255.1-255"
+        title="Тип устройства"
+        description="описание места размещения"
+      >
+        <p>
+          <Button onClick={() => AddNote()}>Добавить</Button>
+          <Button onClick={() => setAddModal(false)}>Отмена</Button>
+        </p>
       </Modal>
-      <Button onClick={() => setAddModal(true)}>Добавить</Button>
+      <Button onClick={() => setAddModal(true)}>Добавить...</Button>
       <table className="table">
         <thead>
           <tr>

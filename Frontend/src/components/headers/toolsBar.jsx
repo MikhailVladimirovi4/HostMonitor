@@ -1,3 +1,3 @@
 export default function ToolsBar() {
-  return <section className="main-toolsbar"></section>;
+  return <section className="maintoolsbar"></section>;
 }

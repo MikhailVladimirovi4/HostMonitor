@@ -36,18 +36,17 @@ time {
   line-height: 1;
 }
 
-.main-table {
+.maintable {
   z-index: -1;
   margin-top: 8%;
   bottom: 5%;
   margin-left: 15%;
-  width: 85%;
   height: 100%;
   padding: 10px;
   font-size: 1vw;
 }
 
-.main-toolsbar {
+.maintoolsbar {
   position: fixed;
   top: 11%;
   bottom: 5%;
@@ -57,7 +56,6 @@ time {
   padding: 10px;
   border-right: 3px solid #040108;
   background-color: rgb(192, 192, 192);
-  font-size: auto;
   font-size: 1vw;
 }
 
@@ -96,7 +94,7 @@ section ul li {
 
 .content,
 p {
-  padding: 1rem 0;
+  padding: 2% 0 2% 0;
 }
 
 .centered {
@@ -109,15 +107,9 @@ p {
   font-size: 1vw;
   border: 1px solid #150505;
   border-radius: 5px;
-  padding: 0.5rem 1rem;
-  width: 40%;
+  padding: 0.5% 0.5%;
+  width: 16.5%;
   background-color: rgb(202, 201, 201);
-}
-.poisk { 
-  position: sticky;
-  top: 10%;
-  font-size: 1vw;
-  font-style: oblique;
 }
   /* background-color: rgb(194, 223, 223); */
   /* background-image: linear-gradient(#83d8cf, #074352); */
