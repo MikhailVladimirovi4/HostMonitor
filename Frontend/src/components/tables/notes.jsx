@@ -3,7 +3,7 @@ import "./table.css";
 import Button from "../buttons/button";
 import { useState, Fragment } from "react";
 import Modal from "../modal/modal";
-import { deleteDevice } from "../services/device";
+import { editDevice, deleteDevice } from "../services/device";
 
 export default function Notes({
   ipAddress,
@@ -20,23 +20,27 @@ export default function Notes({
     setDelModal(true);
   }
 
-  function DelNote(ipAddress) {
+  function delNote(ipAddress) {
     const response = deleteDevice(ipAddress);
     setDelModal(false);
+    response.then((value) => actionComplete(value));
+  }
+
+  function editNote(ipAddress, title, description, note) {
+    console.log(ipAddress, title, description, note)
+    const response = editDevice(ipAddress, title, description, note);
+    setEditModal(false);
     response.then((value) => actionComplete(value));
   }
 
   function openEditModal() {
     setEditModal(true);
   }
-  function closeEditModal() {
-    setEditModal(false);
-  }
 
   return (
     <Fragment>
       <Modal open={delModal} action="del">
-        <Button onClick={() => DelNote(ipAddress)}>Удалить</Button>
+        <Button onClick={() => delNote(ipAddress)}>Удалить</Button>
         <Button onClick={() => setDelModal(false)}>Отмена</Button>
       </Modal>
       <Modal
@@ -47,7 +51,18 @@ export default function Notes({
         description={description}
         note={note}
       >
-        <Button onClick={() => closeEditModal()}>Изменить</Button>
+        <Button
+          onClick={() =>
+            editNote(
+              ipAddress,
+              title,
+              description,
+              note,
+            )
+          }
+        >
+          Изменить
+        </Button>
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
 

@@ -11,13 +11,17 @@ export default function Modal({ open, action, children, ...props }) {
       <div className={action}>
         {action == "add" || action == "edit" ? (
           <p>
-            IP-Адрес:
-            <input
-              type="text"
-              id="ipAddress"
-              className="inputmodal"
-              {...inputIpAddress}
-            />
+            IP-Адрес:{" "}
+            {action == "edit" ? (
+              <section>{props.ipAddress}</section>
+            ) : (
+              <input
+                type="text"
+                id="ipAddress"
+                className="inputmodal"
+                {...inputIpAddress}
+              />
+            )}
             <label htmlFor="ipAddress" />
           </p>
         ) : null}

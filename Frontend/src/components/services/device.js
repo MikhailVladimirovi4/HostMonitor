@@ -32,8 +32,10 @@ export const addDevice = async (ipAddress, title, description) => {
 };
 
 export const editDevice = async (ipAddress, title, description, note) => {
+
+  //console.log(ipAddress,title,description,note)
   try {
-    const str = await axios.post(
+    const str = await axios.put(
       "http://localhost:5291/Device?ipAddress=" +
         ipAddress +
         "&title=" +

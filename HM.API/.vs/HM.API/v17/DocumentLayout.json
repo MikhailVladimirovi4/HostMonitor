@@ -38,8 +38,7 @@
               "RelativeToolTip": "Contracts\\CreateDeviceRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T07:27:08.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T07:27:08.77Z"
             },
             {
               "$type": "Document",
@@ -61,7 +60,7 @@
               "RelativeDocumentMoniker": "Repository\\DevicesRepository.cs",
               "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\DevicesRepository.cs",
               "RelativeToolTip": "Repository\\DevicesRepository.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwCgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T17:23:30.786Z",
               "EditorCaption": ""
@@ -76,8 +75,7 @@
               "RelativeToolTip": "Controllers\\DeviceController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwCQAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:33:11.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T12:33:11.948Z"
             }
           ]
         }
