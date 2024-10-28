@@ -21,9 +21,9 @@ export default function Notes({
   }
 
   function DelNote(ipAddress) {
-    deleteDevice(ipAddress);
+    const response = deleteDevice(ipAddress);
     setDelModal(false);
-    actionComplete(ipAddress + " - запись удалена.");
+    response.then((value) => actionComplete(value));
   }
 
   function openEditModal() {

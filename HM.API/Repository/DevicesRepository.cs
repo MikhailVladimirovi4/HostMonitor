@@ -31,7 +31,11 @@ namespace HM.API.Repository
 
             foreach (Device d in _context.Devices)
             {
-                isIpAddressUse = (d.IpAddress == createDeviceDto.IpAddress);
+                if (d.IpAddress == createDeviceDto.IpAddress)
+                {
+                    isIpAddressUse = true;
+                    break;
+                }
             };
 
             if (!isIpAddressUse)

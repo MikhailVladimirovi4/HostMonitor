@@ -9,8 +9,7 @@ export const deleteDevice = async (ipAddress) => {
     const str = await axios.delete(
       "http://localhost:5291/device?ipAddress=" + ipAddress
     );
-    console.log(str.data);
-    return str;
+    return str.data;
   } catch (e) {
     console.log(e);
     return null;
@@ -19,15 +18,33 @@ export const deleteDevice = async (ipAddress) => {
 
 export const addDevice = async (ipAddress, title, description) => {
   try {
+    const str = await axios.post("http://localhost:5291/Device", {
+      ipAddress,
+      title,
+      description,
+    });
+    console.log(str.data);
+    return str.data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+
+export const editDevice = async (ipAddress, title, description, note) => {
+  try {
     const str = await axios.post(
       "http://localhost:5291/Device?ipAddress=" +
         ipAddress +
         "&title=" +
         title +
         "&description=" +
-        description
+        description +
+        "&note=" +
+        note
     );
-    console.log(str);
+    console.log(str.data);
+    return str.data;
   } catch (e) {
     console.log(e);
     return null;
