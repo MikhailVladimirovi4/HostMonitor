@@ -1,24 +1,20 @@
-import { useState } from "react";
-
 export default function ToolsBar() {
-  const [sortNites,setSortNotes] = useState('')
-  const [group,setGroup] = useState('')
-  
+
   return (
     <section className="maintoolsbar">
       <p>
-        <p>Группировка</p>
-        <select name="" id="">
+        Фильтры:
+        <select className="select" name="" id="">
           <option value="">По умолчанию</option>
-          <option value="offline">Сначала недоступные</option>
+          <option value="offline">Только недоступные</option>
         </select>
       </p>
       <p>
-        <p>Сортировка</p>
-        <select name="" id="">
+        Сортировка:
+        <select className="select" name="" id="">
           <option value="">По умолчанию</option>
-          <option value="ip">По возсрастанию ip-адреса</option>
-          <option value="data">По возсрастанию даты</option>
+          <option value="ip">По возрастанию ip-адреса</option>
+          <option value="data">По возрастанию даты</option>
         </select>
       </p>
     </section>

@@ -23,7 +23,6 @@ export const addDevice = async (ipAddress, title, description) => {
       title,
       description,
     });
-    console.log(str.data);
     return str.data;
   } catch (e) {
     console.log(e);
@@ -32,8 +31,6 @@ export const addDevice = async (ipAddress, title, description) => {
 };
 
 export const editDevice = async (ipAddress, title, description, note) => {
-  console.log(ipAddress, title, description, note);
-
   try {
     const str = await axios.put(
       "http://localhost:5291/Device?ipAddress=" +
@@ -51,3 +48,20 @@ export const editDevice = async (ipAddress, title, description, note) => {
     return null;
   }
 };
+
+ export const pingDevice = async (ipAddress) => {
+
+  ipAddress.fo
+
+//   await axios.get("http://" + ipAddress)
+//     .then((response) => {
+//       if (response.status === 200) {
+//         console.log("online");
+//       } else {
+//         console.log("offline");
+//       }
+//     })
+//     .catch((error) => {
+//       console.log("network error: " + error);
+//     });
+ };

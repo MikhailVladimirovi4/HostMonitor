@@ -15,6 +15,8 @@ export default function Notes({
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
+  const [sortNotes, setSortNotes] = useState("online");
+  //const ping = pingDevice(ipAddress);
 
   function openDelModal() {
     setDelModal(true);
@@ -54,10 +56,10 @@ export default function Notes({
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
       <tr>
-        <td className="datatable">{moment(createdAt).format("DD/MM/YYYY")}</td>
+        <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
         <td>{title}</td>
         <td>{description}</td>
-        <td>{ipAddress}</td>
+        <td className={sortNotes}>{ipAddress}</td>
         <td>{note}</td>
         <td>
           <Button onClick={openEditModal}>Edit</Button>

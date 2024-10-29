@@ -29,6 +29,11 @@ export default function Table({}) {
   const fechData = async () => {
     try {
       const devices = await fetchDevices();
+      // {
+      //   group == "offline"
+      //     ? (devices = devices.sort((a, b) => a.localeCompare(b)))
+      //     : null;
+      // }
 
       setDevices(devices);
     } catch (e) {
@@ -44,8 +49,8 @@ export default function Table({}) {
   return (
     <section className="maintable">
       <span className="showlog">{showLog}</span>
+      <label className="fixed" htmlFor="search">Поиск...</label>
       <input type="text" id="search" className="control" {...input} />
-      <label htmlFor="search">Поиск...</label>
 
       <Modal
         open={addModal}
@@ -81,7 +86,7 @@ export default function Table({}) {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className='bodytabl'>
           {devices
             .filter(
               (device) =>
