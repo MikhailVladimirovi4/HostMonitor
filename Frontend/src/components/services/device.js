@@ -51,8 +51,6 @@ export const editDevice = async (ipAddress, title, description, note) => {
 
  export const pingDevice = async (ipAddress) => {
 
-  ipAddress.fo
-
 //   await axios.get("http://" + ipAddress)
 //     .then((response) => {
 //       if (response.status === 200) {

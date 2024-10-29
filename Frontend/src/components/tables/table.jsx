@@ -13,6 +13,7 @@ export default function Table({}) {
   const [addModal, setAddModal] = useState(false);
   const [updateData, setUpdateData] = useState(false);
   const input = useInput();
+  const [numberNotes, setNumberNotes] = useState(0);
 
   function AddNote(ipAddress, title, description) {
     const response = addDevice(ipAddress, title, description);
@@ -29,13 +30,9 @@ export default function Table({}) {
   const fechData = async () => {
     try {
       const devices = await fetchDevices();
-      // {
-      //   group == "offline"
-      //     ? (devices = devices.sort((a, b) => a.localeCompare(b)))
-      //     : null;
-      // }
 
       setDevices(devices);
+      setNumberNotes(devices.length);
     } catch (e) {
       console.log(e);
       setShowLog("ОШИБКА: Нет связи с базой данных...");
@@ -49,7 +46,10 @@ export default function Table({}) {
   return (
     <section className="maintable">
       <span className="showlog">{showLog}</span>
-      <label className="fixed" htmlFor="search">Поиск...</label>
+      <section className="fixedNotes">{"Всего: " + numberNotes}</section>
+      <label className="fixed" htmlFor="search">
+        Поиск...
+      </label>
       <input type="text" id="search" className="control" {...input} />
 
       <Modal
@@ -86,7 +86,7 @@ export default function Table({}) {
           </tr>
         </thead>
 
-        <tbody className='bodytabl'>
+        <tbody className="bodytabl">
           {devices
             .filter(
               (device) =>

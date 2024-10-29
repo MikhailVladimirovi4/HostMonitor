@@ -10,6 +10,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 .main {
+margin-top: 5%;
   margin-bottom: 2%;
 }
 
@@ -119,6 +120,13 @@ p {
 .fixed {
   position: fixed;
   top: 12%;
+  font-size: 1vw;
+}
+
+.fixedNotes {
+  position: fixed;
+  top: 12%;
+  right: 1.5%;
   font-size: 1vw;
 }
 
