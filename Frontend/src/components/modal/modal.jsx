@@ -1,5 +1,7 @@
 import "./modal.css";
 import useInput from "../services/useInput";
+import Button from "../buttons/button";
+
 export default function Modal({ open, action, children, ...props }) {
   const inputIpAddress = useInput(props.ipAddress);
   const inputTitle = useInput(props.title);
@@ -13,7 +15,7 @@ export default function Modal({ open, action, children, ...props }) {
           <p>
             IP-Адрес:{" "}
             {action == "edit" ? (
-              <section>{props.ipAddress}</section>
+              <span>{props.ipAddress}</span>
             ) : (
               <input
                 type="text"
@@ -63,6 +65,20 @@ export default function Modal({ open, action, children, ...props }) {
         ) : null}
         {action == "del" ? (
           <p className="centered">Подтвердить удаление записи!</p>
+        ) : null}
+        {action == "edit" ? (
+          <Button
+            onClick={() =>
+              props.editNote(
+                props.ipAddress,
+                inputTitle.value,
+                inputDescription.value,
+                inputNote.value
+              )
+            }
+          >
+            Изменить
+          </Button>
         ) : null}
         {children}
       </div>

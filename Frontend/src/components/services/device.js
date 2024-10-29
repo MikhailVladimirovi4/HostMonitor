@@ -32,8 +32,8 @@ export const addDevice = async (ipAddress, title, description) => {
 };
 
 export const editDevice = async (ipAddress, title, description, note) => {
+  console.log(ipAddress, title, description, note);
 
-  //console.log(ipAddress,title,description,note)
   try {
     const str = await axios.put(
       "http://localhost:5291/Device?ipAddress=" +
@@ -45,7 +45,6 @@ export const editDevice = async (ipAddress, title, description, note) => {
         "&note=" +
         note
     );
-    console.log(str.data);
     return str.data;
   } catch (e) {
     console.log(e);

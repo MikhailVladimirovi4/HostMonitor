@@ -46,6 +46,7 @@ export default function Table({}) {
       <span className="showlog">{showLog}</span>
       <input type="text" id="search" className="control" {...input} />
       <label htmlFor="search">Поиск...</label>
+
       <Modal
         open={addModal}
         action="add"
@@ -64,7 +65,9 @@ export default function Table({}) {
           <Button onClick={() => setAddModal(false)}>Отмена</Button>
         </p>
       </Modal>
+
       <Button onClick={() => setAddModal(true)}>Добавить...</Button>
+
       <table className="table">
         <thead>
           <tr>
@@ -77,6 +80,7 @@ export default function Table({}) {
             <th className="buttontable">Del</th>
           </tr>
         </thead>
+
         <tbody>
           {devices
             .filter(

@@ -27,7 +27,6 @@ export default function Notes({
   }
 
   function editNote(ipAddress, title, description, note) {
-    console.log(ipAddress, title, description, note)
     const response = editDevice(ipAddress, title, description, note);
     setEditModal(false);
     response.then((value) => actionComplete(value));
@@ -50,22 +49,10 @@ export default function Notes({
         title={title}
         description={description}
         note={note}
+        editNote={editNote}
       >
-        <Button
-          onClick={() =>
-            editNote(
-              ipAddress,
-              title,
-              description,
-              note,
-            )
-          }
-        >
-          Изменить
-        </Button>
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
-
       <tr>
         <td className="datatable">{moment(createdAt).format("DD/MM/YYYY")}</td>
         <td>{title}</td>
