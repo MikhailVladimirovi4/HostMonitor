@@ -1,7 +1,7 @@
 export default function ToolsBar() {
 
   return (
-    <section className="maintoolsbar">
+    <section className="toolsbar">
       <p>
         Фильтры:
         <select className="select" name="" id="">
@@ -10,7 +10,7 @@ export default function ToolsBar() {
         </select>
       </p>
       <p>
-        Сортировка:
+        Сортировка(НЕ РАБОТАЕТ):
         <select className="select" name="" id="">
           <option value="">По умолчанию</option>
           <option value="ip">По возрастанию ip-адреса</option>

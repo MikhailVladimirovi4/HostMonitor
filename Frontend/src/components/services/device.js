@@ -1,7 +1,12 @@
 import axios from "axios";
 
 export const fetchDevices = async () => {
-  return (await axios.get("http://localhost:5291/device")).data.devices;
+  try {
+    return (await axios.get("http://localhost:5291/device")).data.devices;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
 };
 
 export const deleteDevice = async (ipAddress) => {
@@ -49,17 +54,20 @@ export const editDevice = async (ipAddress, title, description, note) => {
   }
 };
 
- export const pingDevice = async (ipAddress) => {
-
-//   await axios.get("http://" + ipAddress)
-//     .then((response) => {
-//       if (response.status === 200) {
-//         console.log("online");
-//       } else {
-//         console.log("offline");
-//       }
-//     })
-//     .catch((error) => {
-//       console.log("network error: " + error);
-//     });
- };
+export const netStatus = async (ipAddress, waitTime) => {
+  try {
+    const response = (
+      await axios.get(
+        "http://localhost:5291/Tools?host=" +
+          ipAddress +
+          "&waitTime=" +
+          waitTime
+      )
+    ).data;
+    console.log(response)
+    return response;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};

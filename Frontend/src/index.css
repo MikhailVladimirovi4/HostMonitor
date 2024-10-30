@@ -50,19 +50,6 @@ time {
   font-size: 1vw;
 }
 
-.maintoolsbar {
-  position: fixed;
-  top: 11%;
-  bottom: 5%;
-  margin-right: 85%;
-  width: 15%;
-  height: 100%;
-  padding: 10px;
-  border-right: 3px solid #040108;
-  background-color: rgb(192, 192, 192);
-  font-size: 1vw;
-}
-
 .footer {
   position: fixed;
   bottom: 0;
@@ -128,17 +115,6 @@ p {
   top: 12%;
   right: 1.5%;
   font-size: 1vw;
-}
-
-.select {
-  margin: 5% 0 5% 0;
-  width: 100%;
-  font-size: 1vw;
-  box-sizing: border-box;
-  padding: 1px;
-  background: #ffffff;
-  border-radius: 5px;
-  border: 1px solid #010101;
 }
 /* background-color: rgb(194, 223, 223); */
 /* background-image: linear-gradient(#83d8cf, #074352); */

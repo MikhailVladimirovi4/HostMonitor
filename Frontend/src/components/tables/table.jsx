@@ -6,6 +6,7 @@ import useInput from "../services/useInput";
 import moment from "moment";
 import Modal from "../modal/modal";
 import Button from "../buttons/button";
+import ToolsBar from "./toolsBar.jsx";
 
 export default function Table({}) {
   const [devices, setDevices] = useState([]);
@@ -14,6 +15,11 @@ export default function Table({}) {
   const [updateData, setUpdateData] = useState(false);
   const input = useInput();
   const [numberNotes, setNumberNotes] = useState(0);
+  const [waitResponsePingTime, setWaitResponsePingTime] = useState("1000");
+  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("60000");
+  const [sortParam,setSortParam] = useState('ipAddress')
+  const [sortDirection,setSortDirection] = useState('ascending ')
+  var numberOfflineNotes = "В  РАБОТЕ";
 
   function AddNote(ipAddress, title, description) {
     const response = addDevice(ipAddress, title, description);
@@ -30,7 +36,10 @@ export default function Table({}) {
   const fechData = async () => {
     try {
       const devices = await fetchDevices();
-
+      {sortParam=='ipAddress'? (sortDirection=='ascending' ? (devices.sort((a,b) => a.ipAddress > b.ipAddress ? -1 : 1)) : (devices.sort((a,b) => a.ipAddress > b.ipAddress ? 1 : -1))) : null}
+      {sortParam=='createdAt'? (sortDirection=='ascending' ? (devices.sort((a,b) => a.createdAt > b.createdAt ? -1 : 1)) : (devices.sort((a,b) => a.createdAt > b.createdAt ? 1 : -1))) : null}
+      {sortParam=='title'? (sortDirection=='ascending' ? (devices.sort((a,b) => a.title > b.title ? -1 : 1)) : (devices.sort((a,b) => a.title > b.title ? 1 : -1))) : null}
+      {sortParam=='description'? (sortDirection=='ascending' ? (devices.sort((a,b) => a.description > b.description ? -1 : 1)) : (devices.sort((a,b) => a.description > b.description ? 1 : -1))) : null}
       setDevices(devices);
       setNumberNotes(devices.length);
     } catch (e) {
@@ -46,7 +55,9 @@ export default function Table({}) {
   return (
     <section className="maintable">
       <span className="showlog">{showLog}</span>
-      <section className="fixedNotes">{"Всего: " + numberNotes}</section>
+      <section className="fixedNotes">
+        {"Всего: " + numberNotes + ". Offline: " + numberOfflineNotes}
+      </section>
       <label className="fixed" htmlFor="search">
         Поиск...
       </label>
@@ -72,7 +83,7 @@ export default function Table({}) {
       </Modal>
 
       <Button onClick={() => setAddModal(true)}>Добавить...</Button>
-
+      <ToolsBar />
       <table className="table">
         <thead>
           <tr>
@@ -107,7 +118,13 @@ export default function Table({}) {
             )
             .map(({ id, ...props }) => {
               return (
-                <Notes key={id} {...props} actionComplete={actionComplete} />
+                <Notes
+                  key={id}
+                  {...props}
+                  actionComplete={actionComplete}
+                  waitResponsePingTime={waitResponsePingTime}
+                  timerRequestNetStatus={timerRequestNetStatus}
+                />
               );
             })}
         </tbody>

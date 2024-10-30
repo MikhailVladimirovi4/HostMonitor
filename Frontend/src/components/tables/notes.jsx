@@ -1,9 +1,9 @@
 import moment from "moment";
 import "./table.css";
 import Button from "../buttons/button";
-import { useState, Fragment } from "react";
+import { useEffect, useState, Fragment } from "react";
 import Modal from "../modal/modal";
-import { editDevice, deleteDevice } from "../services/device";
+import { editDevice, deleteDevice, netStatus } from "../services/device";
 
 export default function Notes({
   ipAddress,
@@ -12,11 +12,12 @@ export default function Notes({
   note,
   createdAt,
   actionComplete,
+  waitResponsePingTime,
+  timerRequestNetStatus,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  const [sortNotes, setSortNotes] = useState("online");
-  //const ping = pingDevice(ipAddress);
+  const [netNoteStatus, setNetNoteStatus] = useState("");
 
   function openDelModal() {
     setDelModal(true);
@@ -37,6 +38,24 @@ export default function Notes({
   function openEditModal() {
     setEditModal(true);
   }
+
+  const checkNetNote = async () => {
+    try {
+      const resultCheckNetStatus = netStatus(ipAddress, waitResponsePingTime);
+      resultCheckNetStatus.then((value) => setNetNoteStatus(value));
+    } catch (e) {
+      console.log(e);
+      setShowLog("ОШИБКА: сбой сети...");
+    }
+  };
+
+  useEffect(() => {
+    const timeInterval = setInterval(() => checkNetNote(), timerRequestNetStatus);
+
+    return () => {
+      clearInterval(timeInterval);
+    };
+  }, []);
 
   return (
     <Fragment>
@@ -59,7 +78,7 @@ export default function Notes({
         <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
         <td>{title}</td>
         <td>{description}</td>
-        <td className={sortNotes}>{ipAddress}</td>
+        <td className={netNoteStatus}>{ipAddress}</td>
         <td>{note}</td>
         <td>
           <Button onClick={openEditModal}>Edit</Button>
