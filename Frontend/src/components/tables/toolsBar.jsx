@@ -3,15 +3,19 @@ export default function ToolsBar({
   setTimerRequestNetStatus,
   setSortParam,
   setSortDirection,
+  setFilterOffline,
 }) {
   return (
     <section className="toolsbar">
       <section>
         <p>
           Фильтры:
-          <select className="select">
-            <option value="">По умолчанию</option>
-            <option value="offline">Только недоступные</option>
+          <select
+            className="select"
+            onChange={(value) => setFilterOffline(value.target.value)}
+          >
+            <option value="false">По умолчанию</option>
+            <option value="true">Только недоступные</option>
           </select>
         </p>
         <p>
@@ -44,8 +48,8 @@ export default function ToolsBar({
             className="select"
             onChange={(value) => setTimerRequestNetStatus(value.target.value)}
           >
-            <option value="300000">5 минут</option>
-            <option value="60000 ">1 минута</option>
+            <option value="60000">1 минута</option>
+            <option value="300000 ">5 минут</option>
             <option value="600000 ">10 минут</option>
             <option value="1200000 ">20 минут</option>
             <option value="1800000 ">30 минут</option>

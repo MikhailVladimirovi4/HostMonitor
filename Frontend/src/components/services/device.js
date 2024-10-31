@@ -64,7 +64,7 @@ export const netStatus = async (ipAddress, waitTime) => {
           waitTime
       )
     ).data;
-  //  console.log(response)
+    console.log(response)
     return response;
   } catch (e) {
     console.log(e);

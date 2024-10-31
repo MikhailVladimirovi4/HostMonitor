@@ -16,9 +16,10 @@ export default function Table({}) {
   const input = useInput();
   const [numberNotes, setNumberNotes] = useState(0);
   const [waitResponsePingTime, setWaitResponsePingTime] = useState("1000");
-  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("300000");
+  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("60000");
   const [sortParam, setSortParam] = useState("ipAddress");
   const [sortDirection, setSortDirection] = useState("ascending");
+  const [filterOffline, setFilterOffline] = useState("false");
   var numberOfflineNotes = "В  РАБОТЕ";
 
   function AddNote(ipAddress, title, description) {
@@ -39,29 +40,29 @@ export default function Table({}) {
       {
         sortParam == "ipAddress"
           ? sortDirection == "ascending"
-            ? devices.sort((a, b) => (a.ipAddress > b.ipAddress ? -1 : 1))
-            : devices.sort((a, b) => (a.ipAddress > b.ipAddress ? 1 : -1))
+            ? devices.sort((a, b) => (a.ipAddress > b.ipAddress ? 1 : -1))
+            : devices.sort((a, b) => (a.ipAddress > b.ipAddress ? -1 : 1))
           : null;
       }
       {
         sortParam == "createdAt"
           ? sortDirection == "ascending"
-            ? devices.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-            : devices.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1))
+            ? devices.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1))
+            : devices.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
           : null;
       }
       {
         sortParam == "title"
           ? sortDirection == "ascending"
-            ? devices.sort((a, b) => (a.title > b.title ? -1 : 1))
-            : devices.sort((a, b) => (a.title > b.title ? 1 : -1))
+            ? devices.sort((a, b) => (a.title > b.title ? 1 : -1))
+            : devices.sort((a, b) => (a.title > b.title ? -1 : 1))
           : null;
       }
       {
         sortParam == "description"
           ? sortDirection == "ascending"
-            ? devices.sort((a, b) => (a.description > b.description ? -1 : 1))
-            : devices.sort((a, b) => (a.description > b.description ? 1 : -1))
+            ? devices.sort((a, b) => (a.description > b.description ? 1 : -1))
+            : devices.sort((a, b) => (a.description > b.description ? -1 : 1))
           : null;
       }
       setDevices(devices);
@@ -73,12 +74,21 @@ export default function Table({}) {
   };
 
   useEffect(() => {
-    console.log("изменение " + sortDirection + ' '+sortParam+' '+timerRequestNetStatus+' '+waitResponsePingTime);
-  }, [sortDirection, sortParam, timerRequestNetStatus, waitResponsePingTime]);
+    console.log(
+      "изменение " +
+        sortDirection +
+        " " +
+        sortParam +
+        " " +
+        timerRequestNetStatus +
+        " " +
+        waitResponsePingTime
+    );
+  }, [timerRequestNetStatus, waitResponsePingTime]);
 
   useEffect(() => {
     fechData();
-  }, [updateData]);
+  }, [updateData, sortDirection, sortParam]);
 
   return (
     <section className="maintable">
@@ -116,6 +126,7 @@ export default function Table({}) {
         setTimerRequestNetStatus={setTimerRequestNetStatus}
         setSortParam={setSortParam}
         setSortDirection={setSortDirection}
+        setFilterOffline={setFilterOffline}
       />
       <table className="table">
         <thead>
@@ -157,6 +168,7 @@ export default function Table({}) {
                   actionComplete={actionComplete}
                   waitResponsePingTime={waitResponsePingTime}
                   timerRequestNetStatus={timerRequestNetStatus}
+                  filterOffline={filterOffline}
                 />
               );
             })}

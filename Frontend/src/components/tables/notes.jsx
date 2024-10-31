@@ -14,6 +14,7 @@ export default function Notes({
   actionComplete,
   waitResponsePingTime,
   timerRequestNetStatus,
+  filterOffline,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -45,12 +46,14 @@ export default function Notes({
       resultCheckNetStatus.then((value) => setNetNoteStatus(value));
     } catch (e) {
       console.log(e);
-      setShowLog("ОШИБКА: сбой сети...");
     }
   };
 
   useEffect(() => {
-    const timeInterval = setInterval(() => checkNetNote(), timerRequestNetStatus);
+    const timeInterval = setInterval(
+      () => checkNetNote(),
+      timerRequestNetStatus
+    );
 
     return () => {
       clearInterval(timeInterval);
@@ -74,19 +77,23 @@ export default function Notes({
       >
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
-      <tr>
-        <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
-        <td>{title}</td>
-        <td>{description}</td>
-        <td className={netNoteStatus}>{ipAddress}</td>
-        <td>{note}</td>
-        <td>
-          <Button onClick={openEditModal}>Edit</Button>
-        </td>
-        <td>
-          <Button onClick={openDelModal}>X</Button>
-        </td>
-      </tr>
+      {filterOffline == "false" || netNoteStatus== "offline" ? (
+        <>
+          <tr>
+            <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
+            <td>{title}</td>
+            <td>{description}</td>
+            <td className={netNoteStatus}>{ipAddress}</td>
+            <td>{note}</td>
+            <td>
+              <Button onClick={openEditModal}>Edit</Button>
+            </td>
+            <td>
+              <Button onClick={openDelModal}>X</Button>
+            </td>
+          </tr>
+        </>
+      ) : null }
     </Fragment>
   );
 }
