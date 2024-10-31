@@ -8,7 +8,7 @@ namespace HM.API.Controllers
     public class ToolsController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<string> GetPing(string host, string waitTime)
+        public async Task<ActionResult<string>> GetPing(string host, string waitTime)
         {
             string response = "offline";
 
@@ -24,7 +24,7 @@ namespace HM.API.Controllers
                         response = "offline";
                
                 }
-                return  Ok(response);
+                 return Ok(response);
             }
             catch (Exception ex)
             {
