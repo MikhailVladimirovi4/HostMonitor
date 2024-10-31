@@ -15,10 +15,12 @@ export default function Notes({
   waitResponsePingTime,
   timerRequestNetStatus,
   filterOffline,
+  changeTotalOffline,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [netNoteStatus, setNetNoteStatus] = useState("");
+  const [oldNetNoteStatus, setOldNetNoteStatus] = useState("old");
 
   function openDelModal() {
     setDelModal(true);
@@ -49,12 +51,18 @@ export default function Notes({
     }
   };
 
+  useEffect(() => {    
+    if (oldNetNoteStatus != netNoteStatus) {
+      changeTotalOffline(oldNetNoteStatus, netNoteStatus);
+      setOldNetNoteStatus(netNoteStatus);      
+    }
+  }, [netNoteStatus]);
+
   useEffect(() => {
     const timeInterval = setInterval(
-      () => checkNetNote(),
+      () => checkNetNote(oldNetNoteStatus, netNoteStatus),
       timerRequestNetStatus
     );
-
     return () => {
       clearInterval(timeInterval);
     };
@@ -77,7 +85,7 @@ export default function Notes({
       >
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
-      {filterOffline == "false" || netNoteStatus== "offline" ? (
+      {filterOffline == "false" || netNoteStatus == "offline" ? (
         <>
           <tr>
             <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
@@ -93,7 +101,7 @@ export default function Notes({
             </td>
           </tr>
         </>
-      ) : null }
+      ) : null}
     </Fragment>
   );
 }

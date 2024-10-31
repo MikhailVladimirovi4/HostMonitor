@@ -16,11 +16,11 @@ export default function Table({}) {
   const input = useInput();
   const [numberNotes, setNumberNotes] = useState(0);
   const [waitResponsePingTime, setWaitResponsePingTime] = useState("1000");
-  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("60000");
+  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("10000");
   const [sortParam, setSortParam] = useState("ipAddress");
   const [sortDirection, setSortDirection] = useState("ascending");
   const [filterOffline, setFilterOffline] = useState("false");
-  var numberOfflineNotes = "В  РАБОТЕ";
+  var [totalOffline, setTotalOffline] = useState(0);
 
   function AddNote(ipAddress, title, description) {
     const response = addDevice(ipAddress, title, description);
@@ -32,6 +32,17 @@ export default function Table({}) {
     setUpdateData(!updateData);
     setShowLog(text);
     setInterval(() => setShowLog(""), 10000);
+  }
+
+  function changeTotalOffline(oldNetNoteStatus, netNoteStatus) {
+    if (oldNetNoteStatus != "offline" && netNoteStatus == "offline") {
+      totalOffline++;
+    } else if (oldNetNoteStatus == "offline" && netNoteStatus != "offline") {
+      {
+        totalOffline--;
+      }
+    }
+    setTotalOffline(totalOffline);
   }
 
   const fechData = async () => {
@@ -93,9 +104,9 @@ export default function Table({}) {
   return (
     <section className="maintable">
       <span className="showlog">{showLog}</span>
-      <section className="fixedNotes">
-        {"Всего: " + numberNotes + ". Offline: " + numberOfflineNotes}
-      </section>
+      <h1 className="fixedNotes">
+        {"Всего: " + numberNotes + ". Offline: " + totalOffline}
+      </h1>
       <label className="fixed" htmlFor="search">
         Поиск...
       </label>
@@ -169,6 +180,7 @@ export default function Table({}) {
                   waitResponsePingTime={waitResponsePingTime}
                   timerRequestNetStatus={timerRequestNetStatus}
                   filterOffline={filterOffline}
+                  changeTotalOffline={changeTotalOffline}
                 />
               );
             })}
