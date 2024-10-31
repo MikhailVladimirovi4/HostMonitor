@@ -13,10 +13,10 @@ export default function Table({}) {
   const [showLog, setShowLog] = useState("");
   const [addModal, setAddModal] = useState(false);
   const [updateData, setUpdateData] = useState(false);
-  const input = useInput();
+  const searchFilter = useInput();
   const [numberNotes, setNumberNotes] = useState(0);
-  const [waitResponsePingTime, setWaitResponsePingTime] = useState("1000");
-  const [timerRequestNetStatus, setTimerRequestNetStatus] = useState("10000");
+  const [pingResponseTime, setPingResponseTime] = useState("200");
+  const [netCheckInterval, setNetCheckInterval] = useState("300000");
   const [sortParam, setSortParam] = useState("ipAddress");
   const [sortDirection, setSortDirection] = useState("ascending");
   const [filterOffline, setFilterOffline] = useState("false");
@@ -85,19 +85,6 @@ export default function Table({}) {
   };
 
   useEffect(() => {
-    console.log(
-      "изменение " +
-        sortDirection +
-        " " +
-        sortParam +
-        " " +
-        timerRequestNetStatus +
-        " " +
-        waitResponsePingTime
-    );
-  }, [timerRequestNetStatus, waitResponsePingTime]);
-
-  useEffect(() => {
     fechData();
   }, [updateData, sortDirection, sortParam]);
 
@@ -110,7 +97,7 @@ export default function Table({}) {
       <label className="fixed" htmlFor="search">
         Поиск...
       </label>
-      <input type="text" id="search" className="control" {...input} />
+      <input type="text" id="search" className="control" {...searchFilter} />
 
       <Modal
         open={addModal}
@@ -133,8 +120,8 @@ export default function Table({}) {
 
       <Button onClick={() => setAddModal(true)}>Добавить...</Button>
       <ToolsBar
-        setWaitResponsePingTime={setWaitResponsePingTime}
-        setTimerRequestNetStatus={setTimerRequestNetStatus}
+        setPingResponseTime={setPingResponseTime}
+        setNetCheckInterval={setNetCheckInterval}
         setSortParam={setSortParam}
         setSortDirection={setSortDirection}
         setFilterOffline={setFilterOffline}
@@ -153,37 +140,20 @@ export default function Table({}) {
         </thead>
 
         <tbody className="bodytabl">
-          {devices
-            .filter(
-              (device) =>
-                device.ipAddress
-                  .toLowerCase()
-                  .includes(input.value.toLowerCase()) ||
-                device.title
-                  .toLowerCase()
-                  .includes(input.value.toLowerCase()) ||
-                device.description
-                  .toLowerCase()
-                  .includes(input.value.toLowerCase()) ||
-                device.note.toLowerCase().includes(input.value.toLowerCase()) ||
-                moment(device.createdAt)
-                  .format("DD/MM/YYYY")
-                  .toLowerCase()
-                  .includes(input.value.toLowerCase())
-            )
-            .map(({ id, ...props }) => {
-              return (
-                <Notes
-                  key={id}
-                  {...props}
-                  actionComplete={actionComplete}
-                  waitResponsePingTime={waitResponsePingTime}
-                  timerRequestNetStatus={timerRequestNetStatus}
-                  filterOffline={filterOffline}
-                  changeTotalOffline={changeTotalOffline}
-                />
-              );
-            })}
+          {devices.map(({ id, ...props }) => {
+            return (
+              <Notes
+                key={id}
+                {...props}
+                actionComplete={actionComplete}
+                pingResponseTime={pingResponseTime}
+                netCheckInterval={netCheckInterval}
+                filterOffline={filterOffline}
+                changeTotalOffline={changeTotalOffline}
+                searchFilter={searchFilter}
+              />
+            );
+          })}
         </tbody>
       </table>
     </section>

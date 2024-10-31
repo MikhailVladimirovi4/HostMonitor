@@ -1,6 +1,6 @@
 import Header from "./components/headers/header";
 import Table from "./components/tables/table";
-import './index.css'
+import "./index.css";
 export default function App() {
   return (
     <>

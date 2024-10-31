@@ -12,10 +12,11 @@ export default function Notes({
   note,
   createdAt,
   actionComplete,
-  waitResponsePingTime,
-  timerRequestNetStatus,
+  pingResponseTime,
+  netCheckInterval,
   filterOffline,
   changeTotalOffline,
+  searchFilter,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -44,29 +45,29 @@ export default function Notes({
 
   const checkNetNote = async () => {
     try {
-      const resultCheckNetStatus = netStatus(ipAddress, waitResponsePingTime);
+      const resultCheckNetStatus = netStatus(ipAddress, pingResponseTime);
       resultCheckNetStatus.then((value) => setNetNoteStatus(value));
     } catch (e) {
       console.log(e);
     }
   };
 
-  useEffect(() => {    
+  useEffect(() => {
     if (oldNetNoteStatus != netNoteStatus) {
       changeTotalOffline(oldNetNoteStatus, netNoteStatus);
-      setOldNetNoteStatus(netNoteStatus);      
+      setOldNetNoteStatus(netNoteStatus);
     }
   }, [netNoteStatus]);
 
   useEffect(() => {
     const timeInterval = setInterval(
       () => checkNetNote(oldNetNoteStatus, netNoteStatus),
-      timerRequestNetStatus
+      netCheckInterval
     );
     return () => {
       clearInterval(timeInterval);
     };
-  }, []);
+  }, [netCheckInterval, pingResponseTime]);
 
   return (
     <Fragment>
@@ -85,22 +86,32 @@ export default function Notes({
       >
         <Button onClick={() => setEditModal(false)}>Отмена</Button>
       </Modal>
-      {filterOffline == "false" || netNoteStatus == "offline" ? (
-        <>
-          <tr>
-            <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
-            <td>{title}</td>
-            <td>{description}</td>
-            <td className={netNoteStatus}>{ipAddress}</td>
-            <td>{note}</td>
-            <td>
-              <Button onClick={openEditModal}>Edit</Button>
-            </td>
-            <td>
-              <Button onClick={openDelModal}>X</Button>
-            </td>
-          </tr>
-        </>
+
+      {ipAddress.toLowerCase().includes(searchFilter.value.toLowerCase()) ||
+      title.toLowerCase().includes(searchFilter.value.toLowerCase()) ||
+      description.toLowerCase().includes(searchFilter.value.toLowerCase()) ||
+      note.toLowerCase().includes(searchFilter.value.toLowerCase()) ||
+      moment(createdAt)
+        .format("DD/MM/YYYY")
+        .toLowerCase()
+        .includes(searchFilter.value.toLowerCase()) ? (
+        filterOffline == "false" || netNoteStatus == "offline" ? (
+          <>
+            <tr>
+              <td>{moment(createdAt).format("DD/MM/YYYY")}</td>
+              <td>{title}</td>
+              <td>{description}</td>
+              <td className={netNoteStatus}>{ipAddress}</td>
+              <td>{note}</td>
+              <td>
+                <Button onClick={openEditModal}>Edit</Button>
+              </td>
+              <td>
+                <Button onClick={openDelModal}>X</Button>
+              </td>
+            </tr>
+          </>
+        ) : null
       ) : null}
     </Fragment>
   );
