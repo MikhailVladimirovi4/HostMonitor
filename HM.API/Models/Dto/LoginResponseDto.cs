@@ -1,4 +1,8 @@
 ﻿namespace HM.API.Models.Dto
 {
-    public record LoginResponseDto(LocalUser User, string Token);
+    public class LoginResponseDto
+    {
+        public LocalUser User { get; set; }
+        public string Token { get; set; }
+    }
 }
