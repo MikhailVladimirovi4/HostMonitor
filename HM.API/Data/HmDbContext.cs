@@ -12,7 +12,7 @@ namespace HM.API.Data
             _configuration = configuration;
         }
 
-//        public DbSet<LocalUser> LocalUsers => Set<LocalUser>();
+        public DbSet<LocalUser> LocalUsers => Set<LocalUser>();
         public DbSet<Device> Devices => Set<Device>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

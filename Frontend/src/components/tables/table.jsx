@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { addDevice, fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
 import useInput from "../services/useInput";
-import moment from "moment";
 import Modal from "../modal/modal";
 import Button from "../buttons/button";
 import ToolsBar from "./toolsBar.jsx";
@@ -151,6 +150,8 @@ export default function Table({}) {
                 filterOffline={filterOffline}
                 changeTotalOffline={changeTotalOffline}
                 searchFilter={searchFilter}
+                totalOffline={totalOffline}
+                setTotalOffline={setTotalOffline}
               />
             );
           })}
