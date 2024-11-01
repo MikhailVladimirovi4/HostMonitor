@@ -10,16 +10,10 @@ using System.Text;
 
 namespace HM.API.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(HmDbContext dbContext, IConfiguration configuration) : IUserRepository
     {
-        private readonly HmDbContext _dbContext;
-        private string _secretKey;
-
-        public UserRepository(HmDbContext dbContext, IConfiguration configuration)
-        {
-            _dbContext = dbContext;
-            _secretKey = configuration.GetValue<string>("ApiSettings:Secret");
-        }
+        private readonly HmDbContext _dbContext = dbContext;
+        private readonly string _secretKey = configuration.GetValue<string>("ApiSettings:Secret");
 
         public bool IsUniqueUser(string username)
         {
@@ -37,37 +31,34 @@ namespace HM.API.Repository
 
             if (user == null)
             {
-                return null;
+                return new LoginResponseDto() { Token = "", User = null };
             }
-            else
+
+            //if user was found generation JWT Token
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_secretKey);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-
-                //if user was found generation JWT Token
-
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_secretKey);
-
-                var tokenDescriptor = new SecurityTokenDescriptor
+                Subject = new ClaimsIdentity(new Claim[]
                 {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                    new Claim(ClaimTypes.Name,user.Id.ToString()),
-                    new Claim(ClaimTypes.Role,user.Role)
-                    }),
-                    Expires = DateTime.UtcNow.AddDays(1),
-                    SigningCredentials = new(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                };
+                    new(ClaimTypes.Name,user.Id.ToString()),
+                    new(ClaimTypes.Role,user.Role)
+                }),
+                Expires = DateTime.UtcNow.AddDays(1),
+                SigningCredentials = new(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
 
-                var token = tokenHandler.CreateToken(tokenDescriptor);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-                LoginResponseDto loginResponseDto = new LoginResponseDto()
-                {
-                    Token = tokenHandler.WriteToken(token),
-                    User = user,
-                };
+            LoginResponseDto loginResponseDto = new()
+            {
+                Token = tokenHandler.WriteToken(token),
+                User = user,
+            };
 
-                return loginResponseDto;
-            }
+            return loginResponseDto;
         }
 
 

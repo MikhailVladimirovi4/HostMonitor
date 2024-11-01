@@ -1,6 +1,7 @@
 ﻿using HM.API.Contracts;
 using HM.API.Models.Dto;
 using HM.API.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HM.API.Controllers
@@ -18,6 +19,7 @@ namespace HM.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<GetDevicesResponse>>> Get(CancellationToken ct)
         {
             GetDevicesResponse response = new(await _devicesRepository.Get(ct));
@@ -26,6 +28,8 @@ namespace HM.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "operator")]
         public async Task<IActionResult> Create([FromBody] CreateDeviceRequest request, CancellationToken ct)
         {
             return Ok(await _devicesRepository.Create(new CreateDeviceDto(request.IpAddress, request.Title, request.Description), ct));
@@ -40,6 +44,7 @@ namespace HM.API.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "CUSTOM")]
         public async Task<ActionResult<string>> Delete(string ipAddress,CancellationToken ct)
         {
             string result = await _devicesRepository.Delete(ipAddress, ct);
