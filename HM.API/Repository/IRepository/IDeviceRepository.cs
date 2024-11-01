@@ -1,9 +1,8 @@
-﻿using HM.API.Models;
-using HM.API.Models.Dto;
+﻿using HM.API.Models.Dto;
 
 namespace HM.API.Repository.IRepository
 {
-    public interface IDevicesRepository
+    public interface IDeviceRepository
     {
         Task<string> Create(CreateDeviceDto createDeviceDto, CancellationToken ct);
         Task<string> Delete(string ipAddress, CancellationToken ct);

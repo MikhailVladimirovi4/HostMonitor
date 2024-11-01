@@ -10,9 +10,9 @@ namespace HM.API.Controllers
     [Route("[controller]")]
     public class DeviceController : ControllerBase
     {
-        private readonly IDevicesRepository _devicesRepository;
+        private readonly IDeviceRepository _devicesRepository;
 
-        public DeviceController(IDevicesRepository devicesRepository)
+        public DeviceController(IDeviceRepository devicesRepository)
         {
             _devicesRepository = devicesRepository;
         }
