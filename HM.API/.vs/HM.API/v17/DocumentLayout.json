@@ -11,6 +11,14 @@
       "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|c:\\vsprojects\\hostmonitor\\hm.api\\repository\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45FC1C84-BA43-4422-AA9E-E9D4FE1D90BC}|HM.API.csproj|solutionrelative:repository\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,11 +50,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-02T12:52:12.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T12:34:14.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "APIResponse.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Models\\APIResponse.cs",
               "RelativeDocumentMoniker": "Models\\APIResponse.cs",
@@ -54,12 +88,11 @@
               "RelativeToolTip": "Models\\APIResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:50:14.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T19:50:14.52Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\IRepository\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IUserRepository.cs",
@@ -67,8 +100,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:16:12.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T19:16:12.218Z"
             },
             {
               "$type": "Document",
@@ -85,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UserRepository.cs",
@@ -93,8 +125,7 @@
               "RelativeToolTip": "Repository\\UserRepository.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAA8AAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T18:47:51.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T18:47:51.494Z"
             },
             {
               "$type": "Document",
@@ -104,14 +135,14 @@
               "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
               "ToolTip": "C:\\VSProjects\\HostMonitor\\HM.API\\Controllers\\DeviceController.cs",
               "RelativeToolTip": "Controllers\\DeviceController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwB8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wCsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T12:33:11.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ToolsController.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Controllers\\ToolsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ToolsController.cs",
@@ -119,12 +150,11 @@
               "RelativeToolTip": "Controllers\\ToolsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T07:17:45.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T07:17:45.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "HmDbContext.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Data\\HmDbContext.cs",
               "RelativeDocumentMoniker": "Data\\HmDbContext.cs",
@@ -136,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "CreateDeviceRequest.cs",
               "DocumentMoniker": "C:\\VSProjects\\HostMonitor\\HM.API\\Contracts\\CreateDeviceRequest.cs",
               "RelativeDocumentMoniker": "Contracts\\CreateDeviceRequest.cs",
