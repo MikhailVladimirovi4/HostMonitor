@@ -79,5 +79,25 @@ namespace HM.API.Repository
 
             return user;
         }
+
+        public async Task<List<LocalUserDto>> Get(CancellationToken ct)
+        {
+            var users = await _dbContext.LocalUsers
+                .Select(u => new LocalUserDto(u.Id, u.UserName, u.Name, u.Role))
+                .ToListAsync(ct);
+
+            return users;
+        }
+
+        public async Task<string> Delete(string userName, CancellationToken ct)
+        {
+            await _dbContext.LocalUsers
+                .Where(u => u.UserName == userName)
+            .ExecuteDeleteAsync(ct);
+
+            await _dbContext.SaveChangesAsync(ct);
+
+            return "Пользователь " + userName + " удален.";
+        }
     }
 }

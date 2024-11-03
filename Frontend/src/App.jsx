@@ -1,16 +1,9 @@
-import Header from "./components/headers/header";
-import Table from "./components/tables/table";
-import "./index.css";
+import { useState } from "react";
+import Dashboard from "./Dashboard";
+import LoginForm from "./LoginForm";
+
 export default function App() {
-  return (
-    <>
-      <div>
-        <Header />
-        <main className="main">
-          <Table />
-        </main>
-        <footer className="footer">Автор: Михаил Владимирович Бибиков</footer>
-      </div>
-    </>
-  );
+  const [token, setToken] = useState("");
+
+  return <div>{token == "" ? <LoginForm /> : <Dashboard />}</div>;
 }

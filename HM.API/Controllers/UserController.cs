@@ -1,6 +1,8 @@
-﻿using HM.API.Models;
+﻿using HM.API.Contracts;
+using HM.API.Models;
 using HM.API.Models.Dto;
 using HM.API.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -64,6 +66,28 @@ namespace HM.API.Controllers
             _response.StatusCode = HttpStatusCode.OK;
             _response.IsSuccess = true;
             return Ok(_response);
+        }
+
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<List<GetUsersResponse>>> Get(CancellationToken ct)
+        {
+            GetUsersResponse response = new(await _userRepository.Get(ct));
+
+            return Ok(response);
+        }
+
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [HttpDelete]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult<string>> Delete(string userName, CancellationToken ct)
+        {
+            string result = await _userRepository.Delete(userName, ct);
+
+            return Ok(result);
         }
     }
 }

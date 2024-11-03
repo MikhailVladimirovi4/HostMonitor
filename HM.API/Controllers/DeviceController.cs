@@ -38,12 +38,10 @@ namespace HM.API.Controllers
             return Ok(await _devicesRepository.Create(new CreateDeviceDto(request.IpAddress, request.Title, request.Description), ct));
         }
 
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPut]
-        [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> Update(string ipAddress, string title, string description, string note, CancellationToken ct)
         {
+            Console.WriteLine(ipAddress, title, description, note);
             string result = await _devicesRepository.Update(ipAddress, title, description, note, ct);
 
             return Ok(result);
@@ -52,7 +50,7 @@ namespace HM.API.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpDelete]
-        [Authorize(Roles = "CUSTOM")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> Delete(string ipAddress,CancellationToken ct)
         {
             string result = await _devicesRepository.Delete(ipAddress, ct);
