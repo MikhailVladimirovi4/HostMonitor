@@ -7,7 +7,7 @@ namespace HM.API.Controllers
     [Route("[controller]")]
     public class ToolsController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("ping")]
         public async Task<ActionResult<string>> GetPing(string host, string waitTime)
         {
             string response = "offline";

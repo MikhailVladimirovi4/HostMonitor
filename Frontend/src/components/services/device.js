@@ -84,7 +84,7 @@ export const netStatus = async (ipAddress, waitTime, token) => {
   try {
     const response = (
       await axios.get(
-        "http://localhost:5291/Tools?host=" +
+        "http://localhost:5291/Tools/ping?host=" +
           ipAddress +
           "&waitTime=" +
           waitTime,
