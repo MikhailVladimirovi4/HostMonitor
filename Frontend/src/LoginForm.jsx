@@ -2,16 +2,16 @@ import Button from "./components/buttons/button";
 import useInput from "./components/services/useInput";
 import { login } from "./components/services/user";
 
-export default function LoginForm(setToken, setUser, setRole) {
+export default function LoginForm({ setToken, setUser, setRole }) {
   const inputLogin = useInput();
   const inputPassword = useInput();
 
   async function userAuthorize(loginStr, passwordStr) {
     try {
-      const users = await login(loginStr, passwordStr);
-      console.log(users);
-      // setDevices(devices);
-      // setNumberNotes(devices.length);
+      const session = await login(loginStr, passwordStr);
+      setToken(session.token);
+      setUser(session.user.name);
+      setRole(session.user.role);
     } catch (e) {
       console.log(e);
     }

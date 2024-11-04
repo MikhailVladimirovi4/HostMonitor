@@ -65,12 +65,6 @@ export const editDevice = async (ipAddress, title, description, note) => {
         description +
         "&note=" +
         note
-      // {
-      //   headers: {
-      //     Authorization:
-      //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjljODIxZTRjLWU2ZmUtNDAwNy1iYjUwLWExYmJiZDY1YjAxMyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTczMDY1OTk0NSwiZXhwIjoxNzMwNzQ2MzQ1LCJpYXQiOjE3MzA2NTk5NDV9.BeKFw40gw2j3B1S7N6IdvPPnYUcoA_ACc6g4CX2vo6A",
-      //   },
-      // }
     );
     console.log(str.data);
     return str.data;
@@ -80,19 +74,14 @@ export const editDevice = async (ipAddress, title, description, note) => {
   }
 };
 
-export const netStatus = async (ipAddress, waitTime, token) => {
+export const netStatus = async (ipAddress, waitTime) => {
   try {
     const response = (
       await axios.get(
         "http://localhost:5291/Tools/ping?host=" +
           ipAddress +
           "&waitTime=" +
-          waitTime,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+          waitTime
       )
     ).data;
     return response;

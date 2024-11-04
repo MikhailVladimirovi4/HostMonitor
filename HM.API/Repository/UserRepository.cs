@@ -54,6 +54,7 @@ namespace HM.API.Repository
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
+            user.Password = "";
 
             LoginResponseDto loginResponseDto = new()
             {

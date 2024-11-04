@@ -1,3 +1,5 @@
+import Button from "../buttons/button";
+
 export default function ToolsBar({
   setPingResponseTime,
   setNetCheckInterval,
@@ -69,6 +71,9 @@ export default function ToolsBar({
             <option value="2000">2 секунды!</option>
             <option value="1">1 mc.</option>
           </select>
+        </p>
+        <p>
+          <Button>Пользователи</Button>
         </p>
       </section>
     </section>

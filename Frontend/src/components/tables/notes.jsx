@@ -19,6 +19,7 @@ export default function Notes({
   searchFilter,
   totalOffline,
   setTotalOffline,
+  token,
 }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -32,7 +33,7 @@ export default function Notes({
   function delNote(ipAddress) {
     if (netNoteStatus == "offline") setTotalOffline(--totalOffline);
 
-    const response = deleteDevice(ipAddress);
+    const response = deleteDevice(ipAddress, token);
     setDelModal(false);
     response.then((value) => actionComplete(value));
   }

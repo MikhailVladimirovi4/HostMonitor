@@ -7,5 +7,13 @@ export default function App() {
   const [user, setUser] = useState("");
   const [role, setRole] = useState("");
 
-  return <div>{token == "" ? <LoginForm setToken={setToken} setUser={setUser} setRole={setRole}/> : <Dashboard />}</div>;
+  return (
+    <div>
+      {token == "" ? (
+        <LoginForm setToken={setToken} setUser={setUser} setRole={setRole} />
+      ) : (
+        <Dashboard user={user} tole={role} token={token} />
+      )}
+    </div>
+  );
 }

@@ -142,7 +142,7 @@
   {
     "ContainingType": "HM.API.Controllers.ToolsController",
     "Method": "GetPing",
-    "RelativePath": "Tools",
+    "RelativePath": "Tools/ping",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

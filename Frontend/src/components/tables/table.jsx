@@ -7,7 +7,7 @@ import Modal from "../modal/modal";
 import Button from "../buttons/button";
 import ToolsBar from "./toolsBar.jsx";
 
-export default function Table({}) {
+export default function Table({ token }) {
   const [devices, setDevices] = useState([]);
   const [showLog, setShowLog] = useState("");
   const [addModal, setAddModal] = useState(false);
@@ -22,7 +22,7 @@ export default function Table({}) {
   var [totalOffline, setTotalOffline] = useState(0);
 
   function AddNote(ipAddress, title, description) {
-    const response = addDevice(ipAddress, title, description);
+    const response = addDevice(ipAddress, title, description, token);
     setAddModal(false);
     response.then((value) => actionComplete(value));
   }
@@ -46,7 +46,7 @@ export default function Table({}) {
 
   const fechData = async () => {
     try {
-      const devices = await fetchDevices();
+      const devices = await fetchDevices(token);
       {
         sortParam == "ipAddress"
           ? sortDirection == "ascending"
@@ -152,6 +152,7 @@ export default function Table({}) {
                 searchFilter={searchFilter}
                 totalOffline={totalOffline}
                 setTotalOffline={setTotalOffline}
+                token={token}
               />
             );
           })}
