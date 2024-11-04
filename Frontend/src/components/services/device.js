@@ -1,12 +1,11 @@
 import axios from "axios";
 
-export const fetchDevices = async () => {
+export const fetchDevices = async (token) => {
   try {
     return (
       await axios.get("http://localhost:5291/device", {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjljODIxZTRjLWU2ZmUtNDAwNy1iYjUwLWExYmJiZDY1YjAxMyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTczMDY1OTk0NSwiZXhwIjoxNzMwNzQ2MzQ1LCJpYXQiOjE3MzA2NTk5NDV9.BeKFw40gw2j3B1S7N6IdvPPnYUcoA_ACc6g4CX2vo6A",
+          Authorization: `Bearer ${token}`,
         },
       })
     ).data.devices;
@@ -16,14 +15,13 @@ export const fetchDevices = async () => {
   }
 };
 
-export const deleteDevice = async (ipAddress) => {
+export const deleteDevice = async (ipAddress, token) => {
   try {
     const str = await axios.delete(
       "http://localhost:5291/device?ipAddress=" + ipAddress,
       {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjljODIxZTRjLWU2ZmUtNDAwNy1iYjUwLWExYmJiZDY1YjAxMyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTczMDY1OTk0NSwiZXhwIjoxNzMwNzQ2MzQ1LCJpYXQiOjE3MzA2NTk5NDV9.BeKFw40gw2j3B1S7N6IdvPPnYUcoA_ACc6g4CX2vo6A",
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -34,7 +32,7 @@ export const deleteDevice = async (ipAddress) => {
   }
 };
 
-export const addDevice = async (ipAddress, title, description) => {
+export const addDevice = async (ipAddress, title, description, token) => {
   try {
     const str = await axios.post(
       "http://localhost:5291/Device",
@@ -45,8 +43,7 @@ export const addDevice = async (ipAddress, title, description) => {
       },
       {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjljODIxZTRjLWU2ZmUtNDAwNy1iYjUwLWExYmJiZDY1YjAxMyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTczMDY1OTk0NSwiZXhwIjoxNzMwNzQ2MzQ1LCJpYXQiOjE3MzA2NTk5NDV9.BeKFw40gw2j3B1S7N6IdvPPnYUcoA_ACc6g4CX2vo6A",
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -67,7 +64,7 @@ export const editDevice = async (ipAddress, title, description, note) => {
         "&description=" +
         description +
         "&note=" +
-        note,
+        note
       // {
       //   headers: {
       //     Authorization:
@@ -75,7 +72,7 @@ export const editDevice = async (ipAddress, title, description, note) => {
       //   },
       // }
     );
-    console.log(str.data)
+    console.log(str.data);
     return str.data;
   } catch (e) {
     console.log(e);
@@ -83,7 +80,7 @@ export const editDevice = async (ipAddress, title, description, note) => {
   }
 };
 
-export const netStatus = async (ipAddress, waitTime) => {
+export const netStatus = async (ipAddress, waitTime, token) => {
   try {
     const response = (
       await axios.get(
@@ -93,8 +90,7 @@ export const netStatus = async (ipAddress, waitTime) => {
           waitTime,
         {
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjljODIxZTRjLWU2ZmUtNDAwNy1iYjUwLWExYmJiZDY1YjAxMyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTczMDY1OTk0NSwiZXhwIjoxNzMwNzQ2MzQ1LCJpYXQiOjE3MzA2NTk5NDV9.BeKFw40gw2j3B1S7N6IdvPPnYUcoA_ACc6g4CX2vo6A",
+            Authorization: `Bearer ${token}`,
           },
         }
       )

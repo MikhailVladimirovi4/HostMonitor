@@ -32,7 +32,7 @@ namespace HM.API.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateDeviceRequest request, CancellationToken ct)
         {
             return Ok(await _devicesRepository.Create(new CreateDeviceDto(request.IpAddress, request.Title, request.Description), ct));
@@ -50,7 +50,7 @@ namespace HM.API.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpDelete]
-        [Authorize(Roles = "admin")]
+        [Authorize]
         public async Task<ActionResult<string>> Delete(string ipAddress,CancellationToken ct)
         {
             string result = await _devicesRepository.Delete(ipAddress, ct);

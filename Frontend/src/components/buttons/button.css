@@ -139,3 +139,40 @@
   background-color: #a4a4a4;
   pointer-events: none;
 }
+
+.btnIn {
+  position: static;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 5px 5px;
+  margin: 10% 10% 1% 10%;
+  width: 50%;
+  font-size: 1.4vw;
+  font-weight: 600;
+  text-decoration:underline;
+  border-radius: 4px;
+  background-color: #e9d5d5;
+  box-shadow: 0 2px #0c0b0c;
+  cursor: pointer;
+  touch-action: manipulation;
+  vertical-align: bottom;
+  align-content: center;
+}
+
+.btnIn:hover {
+  background-color: #767676;
+  color: #ffffff;
+}
+
+.btnIn:active {
+  background-color: #1d1d1d !important;
+}
+
+.btnIn:focus-visible {
+  box-shadow: 0 0 0 3px rgb(208, 135, 250);
+}
+
+.btnIn:disabled {
+  background-color: #a4a4a4;
+  pointer-events: none;
+}

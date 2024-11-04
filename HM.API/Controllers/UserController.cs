@@ -40,7 +40,10 @@ namespace HM.API.Controllers
             return Ok(_response);
         }
 
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPost("register")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Rigester([FromBody] RegistrationRequestDto registrationRequestDto, CancellationToken ct)
         {
             bool ifUserNameUnique = _userRepository.IsUniqueUser(registrationRequestDto.UserName);
@@ -71,7 +74,7 @@ namespace HM.API.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<List<GetUsersResponse>>> Get(CancellationToken ct)
         {
             GetUsersResponse response = new(await _userRepository.Get(ct));

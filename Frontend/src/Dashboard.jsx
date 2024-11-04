@@ -2,6 +2,7 @@ import Header from "./components/headers/header";
 import Table from "./components/tables/table";
 
 export default function Dashboard() {
+
   return (
     <>
       <div>
