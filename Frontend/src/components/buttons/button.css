@@ -8,7 +8,7 @@
   border: none;
   border-radius: 4px;
   color: #000000;
-  background-color: #e9d5d5;
+  background-color: #d7d6d6;
   box-shadow: 0 2px #0c0b0c;
   cursor: pointer;
   user-select: none;
@@ -150,8 +150,8 @@
   font-size: 1.4vw;
   font-weight: 600;
   text-decoration:underline;
-  border-radius: 4px;
-  background-color: #e9d5d5;
+  border-radius: 5px;
+  background-color: #6b6b6b;
   box-shadow: 0 2px #0c0b0c;
   cursor: pointer;
   touch-action: manipulation;
@@ -173,6 +173,39 @@
 }
 
 .btnIn:disabled {
+  background-color: #a4a4a4;
+  pointer-events: none;
+}
+
+.btnAddUser {
+  margin-left: 0;
+  margin-bottom: 1%;
+  font-size: 1vw;
+  padding: 5px 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #020000;
+  background-color: #6aec66;
+  box-shadow: 0 2px #2e7f21;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+.btnAddUser:hover {
+  color: #ece8e8;
+  background-color: #25871a;
+}
+.btnAddUser:active {
+  color: #ece8e8;
+  background-color: #12490f !important;
+}
+.btnAddUser:focus-visible {
+  box-shadow: 0 0 0 3px rgb(137, 250, 135);
+}
+.btnAddUser:disabled {
   background-color: #a4a4a4;
   pointer-events: none;
 }

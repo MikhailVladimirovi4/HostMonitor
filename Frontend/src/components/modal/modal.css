@@ -48,6 +48,29 @@
   box-shadow: 0 3px #798159;
   font-size: 1vw;
 }
+.newUser {
+  top: 35%;
+  left: 35%;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  color: #023201;
+  padding: 1rem;
+  border: 3px solid #040909;
+  border-radius: 10px;
+  box-shadow: 0 3px #798159;
+  font-size: 1vw;
+}
+.user {
+  top: 35%;
+  left: 35%;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border: 3px solid #040909;
+  border-radius: 10px;
+  box-shadow: 0 3px #798159;
+  font-size: 1vw;
+}
 .inputmodal { 
   position: sticky;
   top: 10%;

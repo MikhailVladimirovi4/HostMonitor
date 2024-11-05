@@ -12,7 +12,7 @@ export default function App() {
       {token == "" ? (
         <LoginForm setToken={setToken} setUser={setUser} setRole={setRole} />
       ) : (
-        <Dashboard user={user} tole={role} token={token} />
+        <Dashboard user={user} role={role} token={token} />
       )}
     </div>
   );

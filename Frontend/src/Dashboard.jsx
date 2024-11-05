@@ -1,15 +1,15 @@
 import Header from "./components/headers/header";
 import Table from "./components/tables/table";
 
-export default function Dashboard({ user, role, token }) {
+export default function Dashboard({ role, token }) {
   return (
     <>
       <div>
         <Header />
         <main className="main">
-          <Table token={token} />
+          <Table token={token} role={role}/>
         </main>
-        <footer className="footer">Автор: Михаил Владимирович Бибиков</footer>
+        {/* <footer className="footer">Автор: Михаил Владимирович Бибиков</footer> */}
       </div>
     </>
   );

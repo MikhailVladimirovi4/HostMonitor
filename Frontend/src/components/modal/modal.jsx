@@ -7,6 +7,10 @@ export default function Modal({ open, action, children, ...props }) {
   const inputTitle = useInput(props.title);
   const inputDescription = useInput(props.description);
   const inputNote = useInput(props.note);
+  const inputNewName = useInput(props.newName)
+  const inputUserName = useInput(props.newUserName)
+  const inputPassword = useInput(props.newPassword)
+  const inputRole = useInput(props.newRole)
 
   return open ? (
     <div className="modal">
@@ -66,6 +70,52 @@ export default function Modal({ open, action, children, ...props }) {
         {action == "del" ? (
           <p className="centered">Подтвердить удаление записи!</p>
         ) : null}
+
+        {action == "newUser" ? (
+          <>
+            <p>
+              Ф.И.О. :
+              <input
+                type="text"
+                id="newName"
+                className="inputmodal"
+                {...inputNewName}
+              />
+              <label htmlFor="newName" />
+            </p>
+            <p>
+              Логин :
+              <input
+                type="text"
+                id="newUserName"
+                className="inputmodal"
+                {...inputUserName}
+              />
+              <label htmlFor="newUserName" />
+            </p>
+            <p>
+              Пароль :
+              <input
+                type="text"
+                id="newPassword"
+                className="inputmodal"
+                {...inputPassword}
+              />
+              <label htmlFor="newPassword" />
+            </p>
+            <p>
+              Роль :
+              <input
+                type="text"
+                id="newRole"
+                className="inputmodal"
+                {...inputRole}
+              />
+              <label htmlFor="newRole" />
+            </p>
+          </>
+        ) : null}
+
         {action == "edit" ? (
           <Button
             onClick={() =>

@@ -7,7 +7,7 @@ import Modal from "../modal/modal";
 import Button from "../buttons/button";
 import ToolsBar from "./toolsBar.jsx";
 
-export default function Table({ token }) {
+export default function Table({ token, role }) {
   const [devices, setDevices] = useState([]);
   const [showLog, setShowLog] = useState("");
   const [addModal, setAddModal] = useState(false);
@@ -118,13 +118,17 @@ export default function Table({ token }) {
       </Modal>
 
       <Button onClick={() => setAddModal(true)}>Добавить...</Button>
-      <ToolsBar
-        setPingResponseTime={setPingResponseTime}
-        setNetCheckInterval={setNetCheckInterval}
-        setSortParam={setSortParam}
-        setSortDirection={setSortDirection}
-        setFilterOffline={setFilterOffline}
-      />
+      {/* {role == "admin" ? ( */}
+        <ToolsBar
+          setPingResponseTime={setPingResponseTime}
+          setNetCheckInterval={setNetCheckInterval}
+          setSortParam={setSortParam}
+          setSortDirection={setSortDirection}
+          setFilterOffline={setFilterOffline}
+          token={token}
+          setShowLog={setShowLog}
+        />
+      {/* ) : null} */}
       <table className="table">
         <thead>
           <tr>

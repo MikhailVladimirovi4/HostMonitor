@@ -66,7 +66,6 @@ export const editDevice = async (ipAddress, title, description, note) => {
         "&note=" +
         note
     );
-    console.log(str.data);
     return str.data;
   } catch (e) {
     console.log(e);
