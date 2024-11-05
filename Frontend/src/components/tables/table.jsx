@@ -1,5 +1,5 @@
 import "./table.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { addDevice, fetchDevices } from "../services/device.js";
 import Notes from "./notes.jsx";
 import useInput from "../services/useInput";
@@ -28,7 +28,7 @@ export default function Table({ token, role }) {
   }
 
   function actionComplete(text) {
-    setUpdateData(!updateData);
+    setUpdateData((prev) => !prev);
     setShowLog(text);
     setInterval(() => setShowLog(""), 10000);
   }
@@ -118,16 +118,16 @@ export default function Table({ token, role }) {
       </Modal>
 
       <Button onClick={() => setAddModal(true)}>Добавить...</Button>
-      {/* {role == "admin" ? ( */}
-        <ToolsBar
-          setPingResponseTime={setPingResponseTime}
-          setNetCheckInterval={setNetCheckInterval}
-          setSortParam={setSortParam}
-          setSortDirection={setSortDirection}
-          setFilterOffline={setFilterOffline}
-          token={token}
-          setShowLog={setShowLog}
-        />
+      <ToolsBar
+        setPingResponseTime={setPingResponseTime}
+        setNetCheckInterval={setNetCheckInterval}
+        setSortParam={setSortParam}
+        setSortDirection={setSortDirection}
+        setFilterOffline={setFilterOffline}
+        token={token}
+        setShowLog={setShowLog}
+        role={role}
+      />
       {/* ) : null} */}
       <table className="table">
         <thead>
