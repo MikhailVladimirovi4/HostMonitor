@@ -1,11 +1,11 @@
 import Header from "./components/headers/header";
 import Table from "./components/tables/table";
 
-export default function Dashboard({ role, token }) {
+export default function Dashboard({ user, role, token }) {
   return (
     <>
       <div>
-        <Header />
+        <Header user={user} />
         <main className="main">
           <Table token={token} role={role}/>
         </main>

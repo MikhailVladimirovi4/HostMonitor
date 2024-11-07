@@ -1,7 +1,7 @@
 import logo from "/monitoring.jpg";
 import { useEffect, useState } from "react";
 
-export default function Header() {
+export default function Header({user}) {
   const [nowTime, setNowTime] = useState(new Date());
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Header() {
     <header className="header">
       <img src={logo} alt="Графика" width="10%" />
       <span>
-        <section className="colorwhite">Тут может быть ваша РЕКЛАМА...</section>
+        <section className="colorwhite">Вы вошли как: {user}.</section>
       </span>
       <span>
         <time>
